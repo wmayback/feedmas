@@ -1,0 +1,40 @@
+<h1>Foods (Pickups Index)</h1>
+
+<h2> Logged in as <%= session[:account_name]%> : <%=session[:first_name]%> <%=session[:last_name]%> </h2>
+
+<p><%= link_to 'Log In and Add an Item', new_food_url %></p>
+
+<p><%= link_to 'Register', new_account_url  %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>User</th>
+      <th>Description</th>
+      <th>Claimed?</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @foods.each do |food| %>
+    <tr>
+      <td><%= food.status %></td>
+      <td><%= food.user_id %></td>
+      <td><%= food.description %></td>
+      <td><%= food.claimant %></td>
+
+      <td><%= link_to 'Show', food_url(food) %></td>
+      <td><%= link_to 'Edit', edit_food_url(food) %></td>
+      <td><%= link_to 'Destroy', food_url(food), method: 'delete', data: { confirm: "Do you really want to delete this food?" } %></td>
+       <td><%= link_to 'Claim', foods_url %></td>
+
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

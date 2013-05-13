@@ -1,0 +1,45 @@
+<h1>New User for <%=session[:account_name] %></h1>
+
+
+<%= form_tag(users_url, method: 'post') do %>
+
+
+  <div>
+    <%= label_tag :email %><br />
+    <%= text_field_tag :email %>
+  </div>
+
+
+
+  <div>
+    <%= label_tag :first_name %><br />
+    <%= text_field_tag :first_name %>
+  </div>
+
+  <div>
+    <%= label_tag :last_name %><br />
+    <%= text_field_tag :last_name %>
+  </div>
+
+
+
+  <div>
+    <%= label_tag :phone %><br />
+    <%= text_field_tag :phone %>
+  </div>
+<!--
+  <div>
+    <%= label_tag :mphone %><br />
+    <%= text_field_tag :mphone %>
+  </div>
+
+  <div>
+    <%= label_tag :fax %><br />
+    <%= text_field_tag :fax %>
+  </div> -->
+
+
+  <div>
+    <%= submit_tag "Create User" %>
+  </div>
+<% end %>

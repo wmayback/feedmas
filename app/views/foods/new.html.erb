@@ -1,0 +1,25 @@
+<h1>New Food</h1>
+
+<h2> Logged in as <%= session[:account_name]%> : <%=session[:first_name]%> <%=session[:last_name]%> </h2>
+
+
+<%= form_tag(foods_url, method: 'post') do %>
+
+  <div>
+    <%= hidden_field_tag :user_id, session[:account_name] %>
+  </div>
+
+  <div>
+    <%= label_tag :status  %><br />
+    <%= text_field_tag :status %>
+  </div>
+
+  <div>
+    <%= label_tag :description %><br />
+    <%= text_field_tag :description %>
+  </div>
+
+  <div>
+    <%= submit_tag "Create Food" %>
+  </div>
+<% end %>

@@ -1,0 +1,32 @@
+<h1>Editing <%= @food.description %></h1>
+
+<h2> Logged in as <%= session[:account_name]%> : <%=session[:first_name]%> <%=session[:last_name]%> </h2>
+
+
+<%= form_tag(food_url(@food), method: 'put') do %>
+
+  <div>
+    <%= label_tag :status %><br />
+    <%= text_field_tag :status, @food.status %>
+  </div>
+
+    <div>
+    <%= hidden_field_tag :user_id, session[:account_name] %>
+    </div>
+
+  <div>
+    <%= label_tag :description %><br />
+    <%= text_field_tag :description, @food.description %>
+  </div>
+
+  <div>
+    <%= label_tag :claimant %><br />
+    <%= text_field_tag :claimant, @food.claimant %>
+  </div>
+
+
+  <div>
+    <%= submit_tag "Update Food" %>
+  </div>
+
+<% end %>

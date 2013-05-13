@@ -1,0 +1,42 @@
+<h1>Accounts</h1>
+
+<p><%= link_to 'Add a New Account', new_account_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Account name</th>
+      <th>Phone</th>
+      <th>Address line1</th>
+      <th>Address line2</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Postcode</th>
+      <th>Logo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @accounts.each do |account| %>
+    <tr>
+      <td><%= account.account_name %></td>
+      <td><%= account.phone %></td>
+      <td><%= account.address_line1 %></td>
+      <td><%= account.address_line2 %></td>
+      <td><%= account.city %></td>
+      <td><%= account.state %></td>
+      <td><%= account.postcode %></td>
+      <td><%= account.logo %></td>
+  
+      <td><%= link_to 'Show', account_url(account) %></td>
+      <td><%= link_to 'Edit', edit_account_url(account) %></td>
+      <td><%= link_to 'Destroy', account_url(account), method: 'delete', data: { confirm: "Do you really want to delete this account?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

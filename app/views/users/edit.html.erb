@@ -1,0 +1,51 @@
+<h1>Editing User #<%= @user.id %></h1>
+
+
+<%= form_tag(user_url(@user), method: 'put') do %>
+
+  <div>
+    <%= label_tag :email %><br />
+    <%= text_field_tag :email, @user.email %>
+  </div>
+
+  <div>
+    <%= label_tag :type %><br />
+    <%= text_field_tag :type, @user.type %>
+  </div>
+
+  <div>
+    <%= label_tag :first_name %><br />
+    <%= text_field_tag :first_name, @user.first_name %>
+  </div>
+
+  <div>
+    <%= label_tag :last_name %><br />
+    <%= text_field_tag :last_name, @user.last_name %>
+  </div>
+
+  <div>
+    <%= label_tag :account_id %><br />
+    <%= text_field_tag :account_id, @user.account_id %>
+  </div>
+
+  <div>
+    <%= label_tag :phone %><br />
+    <%= text_field_tag :phone, @user.phone %>
+  </div>
+
+  <div>
+    <%= label_tag :mphone %><br />
+    <%= text_field_tag :mphone, @user.mphone %>
+  </div>
+
+  <div>
+    <%= label_tag :fax %><br />
+    <%= text_field_tag :fax, @user.fax %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update User" %>
+  </div>
+
+<% end %>

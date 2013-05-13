@@ -1,0 +1,51 @@
+<h1>Editing Account #<%= @account.id %></h1>
+
+
+<%= form_tag(account_url(@account), method: 'put') do %>
+
+  <div>
+    <%= label_tag :account_name %><br />
+    <%= text_field_tag :account_name, @account.account_name %>
+  </div>
+
+  <div>
+    <%= label_tag :phone %><br />
+    <%= text_field_tag :phone, @account.phone %>
+  </div>
+
+  <div>
+    <%= label_tag :address_line1 %><br />
+    <%= text_field_tag :address_line1, @account.address_line1 %>
+  </div>
+
+  <div>
+    <%= label_tag :address_line2 %><br />
+    <%= text_field_tag :address_line2, @account.address_line2 %>
+  </div>
+
+  <div>
+    <%= label_tag :city %><br />
+    <%= text_field_tag :city, @account.city %>
+  </div>
+
+  <div>
+    <%= label_tag :state %><br />
+    <%= text_field_tag :state, @account.state %>
+  </div>
+
+  <div>
+    <%= label_tag :postcode %><br />
+    <%= text_field_tag :postcode, @account.postcode %>
+  </div>
+
+  <div>
+    <%= label_tag :logo %><br />
+    <%= text_field_tag :logo, @account.logo %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Account" %>
+  </div>
+
+<% end %>

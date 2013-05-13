@@ -1,0 +1,62 @@
+<h1>New Account</h1>
+
+
+<%= form_tag(accounts_url, method: 'post') do %>
+
+
+  <div>
+    <%= label_tag :account_name %><br />
+    <%= text_field_tag :account_name %>
+  </div>
+
+  <div>
+
+  <%= label_tag :type %>
+
+  <select name=":type">
+
+  <option value="1">Restaurant</option>
+  <option value="2">Pantry</option>
+  </select>
+  </div>
+
+  <div>
+    <%= label_tag :phone %><br />
+    <%= text_field_tag :phone %>
+  </div>
+
+  <div>
+    <%= label_tag :address_line1 %><br />
+    <%= text_field_tag :address_line1 %>
+  </div>
+
+  <div>
+    <%= label_tag :address_line2 %><br />
+    <%= text_field_tag :address_line2 %>
+  </div>
+
+  <div>
+    <%= label_tag :city %><br />
+    <%= text_field_tag :city %>
+  </div>
+
+  <div>
+    <%= label_tag :state %><br />
+    <%= text_field_tag :state %>
+  </div>
+
+  <div>
+    <%= label_tag :postcode %><br />
+    <%= text_field_tag :postcode %>
+  </div>
+
+  <div>
+    <%= label_tag :logo %><br />
+    <%= text_field_tag :logo %>
+  </div>
+
+
+  <div>
+    <%= submit_tag "Create Account" %>
+  </div>
+<% end %>
