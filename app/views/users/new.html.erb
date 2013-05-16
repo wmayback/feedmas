@@ -3,6 +3,10 @@
 
 <%= form_tag(users_url, method: 'post') do %>
 
+<div>
+    <%= hidden_field_tag :account_id, Account.find_by_account_name(session[:account_name]).id %>
+  </div>
+
 
   <div>
     <%= label_tag :email %><br />
@@ -27,8 +31,8 @@
     <%= label_tag :phone %><br />
     <%= text_field_tag :phone %>
   </div>
-<!--
-  <div>
+
+<!--   <div>
     <%= label_tag :mphone %><br />
     <%= text_field_tag :mphone %>
   </div>
@@ -37,6 +41,14 @@
     <%= label_tag :fax %><br />
     <%= text_field_tag :fax %>
   </div> -->
+  <div>
+     <%=label_tag :password %><br />
+     <%= password_field_tag :password %>
+  </div>
+  <div>
+    <%= label_tag :password_confirmation %><br />
+    <%= password_field_tag :password_confirmation %>
+  </div>
 
 
   <div>

@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new
+
     @user.email = params[:email]
     @user.type = params[:type]
     @user.first_name = session[:first_name] = params[:first_name]
@@ -22,9 +23,11 @@ class UsersController < ApplicationController
     @user.phone = params[:phone]
     @user.mphone = params[:mphone]
     @user.fax = params[:fax]
+    @user.password = params[:password]
+    @user.password_confirmation = params[:password_confirmation]
 
     if @user.save
-      redirect_to foods_url
+      redirect_to "/sessions/new"
     else
       render 'new'
     end

@@ -1,4 +1,14 @@
 Feedmas::Application.routes.draw do
+  #login practice
+
+  get '/sessions/new', controller: "Sessions", action: "new"
+  post '/sessions', controller: "Sessions", action: "create"
+  delete '/sessions', controller: "Sessions", action: "destroy"
+
+  #claiming an item
+
+  post '/claim/:id', controller: "Claim", action: "create", as: 'claim'
+
   # Routes for the Food resource:
   # CREATE
   get '/foods/new', controller: 'foods', action: 'new', as: 'new_food'

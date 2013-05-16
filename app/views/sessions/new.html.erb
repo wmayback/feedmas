@@ -1,0 +1,26 @@
+<h1>Please enter your credentials below.</h1>
+
+
+<%= form_tag("/sessions", method: 'post') do %>
+
+
+  <div>
+    <%= label_tag :email %><br />
+    <%= text_field_tag :email %>
+  </div>
+
+  <div>
+    <%= label_tag :password %><br />
+    <%= password_field_tag :password %>
+  </div>
+
+  <div>
+    <%= submit_tag "Log in" %>
+  </div>
+
+  <%end%>
+    <th><%= form_tag(new_account_url, method: 'get') do %>
+  <div>
+    <%= submit_tag "Have you Registered as a User?" %>
+  </div>
+  <%end%></th>

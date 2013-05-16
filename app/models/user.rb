@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_secure_password
+  attr_accessible :email, :password, :password_confirmation
   validates :email, :uniqueness => true
 
   validates :email, :presence => true
@@ -7,5 +9,6 @@ class User < ActiveRecord::Base
   validates :phone, :presence => true
 
   belongs_to :account
+
 
 end
