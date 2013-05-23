@@ -21,10 +21,10 @@ end
 puts "There are now #{Account.count} rows in the Accounts table."
 
 users_hashes = [
-{:email => "maduana3@gmail.com", type: => "pantry", :first_name => "Helga", :last_name => "Smith", :account_id => 0, :phone => "847-362-2626", :mphone => "773-202-9000", :fax => "312-821-9092" },
-{:email => "delamikeii@hotmail.com", type: => "restaurant", :first_name => "Jimmy", :last_name => "Donohugh", :account_id => 1, :phone => "847-362-7560", :mphone => "847-909-5050", :fax => "312-821-9093" },
-{:email => "heytherelilmomma@aol.com", type: => "pantry", :first_name => "Johnny", :last_name => "Bravo", :account_id => 1, :phone => "847-707-1200", :mphone => "773-191-9090", :fax => "312-821-7773" },
-{:email => "xxxpinoyboi3xxx@hotmail.com", type: => "restaurant", :first_name => "BillNye", :last_name => "TheScienceGuy", :account_id => 2, :phone => "800-suckadick", :mphone => "696-969-6969", :fax => "ballsballsballs" },
+{:email => "maduana3@gmail.com", :type => "pantry", :first_name => "Helga", :last_name => "Smith", :account_id => 0, :phone => "847-362-2626", :mphone => "773-202-9000", :fax => "312-821-9092" },
+{:email => "delamikeii@hotmail.com", :type => "restaurant", :first_name => "Jimmy", :last_name => "Donohugh", :account_id => 1, :phone => "847-362-7560", :mphone => "847-909-5050", :fax => "312-821-9093" },
+{:email => "heytherelilmomma@aol.com", :type => "pantry", :first_name => "Johnny", :last_name => "Bravo", :account_id => 1, :phone => "847-707-1200", :mphone => "773-191-9090", :fax => "312-821-7773" },
+{:email => "xxxpinoyboi3xxx@hotmail.com", :type => "restaurant", :first_name => "BillNye", :last_name => "TheScienceGuy", :account_id => 2, :phone => "800-suckadick", :mphone => "696-969-6969", :fax => "ballsballsballs" },
 ]
 
 User.destroy_all
@@ -44,13 +44,3 @@ puts "There are now #{User.count} rows in the Accounts table."
 
 
 
-
-  create_table "users", :force => true do |t|
-
-    t.string "first_name"
-    t.string "last_name"
-    t.string "account_id"
-    t.string "phone"
-    t.string "mphone"
-    t.string "fax"
-    t.string "password_digest"
