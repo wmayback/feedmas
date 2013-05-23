@@ -1,15 +1,33 @@
 class UsersController < ApplicationController
 
+   before_filter :define_user, :except => [:index, :new, :create]
+   before_filter :authorize_account, :only => [:edit, :update, :destroy]
+
+  def authorize_account
+    @user = User.find(params[:id])
+
+    #@user.account_id != session[:email]
+
+    if Account.find_by_id(@user.account_id).account_name != session[:account_name]
+      redirect_to users_url, notice: "Unauthorized User"
+    end
+  end
+
+  def define_user
+    @user = User.find_by_id(params[:id])
+
+  end
+
   def index
     @users = User.all
   end
 
   def show
-    @user = User.find_by_id(params[:id])
+    @user
   end
 
   def new
-    @user = User.new
+    @user
   end
 
   def create
@@ -34,11 +52,10 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find_by_id(params[:id])
+    @user
   end
 
   def update
-    @user = User.find_by_id(params[:id])
     @user.email = params[:email]
     @user.type = params[:type]
     @user.first_name = params[:first_name]
@@ -56,7 +73,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by_id(params[:id])
     @user.destroy
     redirect_to users_url
   end

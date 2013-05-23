@@ -1,6 +1,49 @@
-<h1>Users</h1>
+<h1>Network and Account Settings</h1>
+
+<% if session[:account_name].present? %>
+<h4> logged in as <%=session[:first_name]%> <%=session[:last_name]%> :: <%= session[:account_name]%>  </h4>
+<%end%>
+
+<table>
+  <thead>
+    <tr>
+        <% if session[:account_name].present? %>
+
+        <th><%= form_tag("/sessions", method: 'delete') do %>
+        <div>
+        <%= submit_tag "Log out" %>
+        </div>
+        <%end%></th>
+
+        <th><%= form_tag(foods_path, method: 'get') do %>
+        <div>
+        <%= submit_tag "Feedmore Index" %>
+        </div>
+        <%end%></th>
+
+        <%else%>
+
+        <th><%= form_tag("/sessions/new", method: 'get') do %>
+        <div>
+        <%= submit_tag "Log in" %>
+        </div>
+        <%end%>
+        </th>
+
+        <th><%= form_tag(new_account_url, method: 'get') do %>
+        <div>
+        <%= submit_tag "Register as a New User" %>
+        </div>
+        <%end%></th>
+
+        <%end%>
+    </tr>
+ </thead>
+</table>
 
 <p><%= link_to 'Add a New User', new_user_url %></p>
+
+<h3> <%=session[:account_name]%> authorized Users:</h3>
 
 <table>
   <thead>
@@ -20,7 +63,8 @@
   </thead>
 
   <tbody>
-  <% @users.each do |user| %>
+  <% @users.each do |user|
+    if  Account.find_by_id(user.account_id).account_name == session[:account_name]%>
     <tr>
       <td><%= user.email %></td>
       <td><%= user.type %></td>
@@ -36,6 +80,45 @@
       <td><%= link_to 'Destroy', user_url(user), method: 'delete', data: { confirm: "Do you really want to delete this user?" } %></td>
 
     </tr>
+  <% end %>
+  <% end %>
+  </tbody>
+</table>
+
+<h4>Users In Our feedMore Network</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Type</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Account</th>
+      <th>Phone</th>
+      <th>Mphone</th>
+      <th>Fax</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @users.each do |user|
+      if  Account.find_by_id(user.account_id).account_name != session[:account_name]%>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.type %></td>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+      <td><%= Account.find_by_id(user.account_id).account_name %></td>
+      <td><%= user.phone %></td>
+      <td><%= user.mphone %></td>
+      <td><%= user.fax %></td>
+      <td><%= link_to 'Show', user_url(user) %></td>
+    </tr>
+     <% end %>
   <% end %>
   </tbody>
 </table>

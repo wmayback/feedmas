@@ -1,7 +1,13 @@
 <h1>Editing User #<%= @user.id %></h1>
 
+<h4> logged in as <%=session[:first_name]%> <%=session[:last_name]%> :: <%= session[:account_name]%>  </h4>
+
 
 <%= form_tag(user_url(@user), method: 'put') do %>
+
+  <div>
+    <%= hidden_field_tag :account_id,  @user.account_id %>
+  </div>
 
   <div>
     <%= label_tag :email %><br />
@@ -24,11 +30,6 @@
   </div>
 
   <div>
-    <%= label_tag :account_id %><br />
-    <%= text_field_tag :account_id, @user.account_id %>
-  </div>
-
-  <div>
     <%= label_tag :phone %><br />
     <%= text_field_tag :phone, @user.phone %>
   </div>
@@ -43,7 +44,7 @@
     <%= text_field_tag :fax, @user.fax %>
   </div>
 
-  
+
   <div>
     <%= submit_tag "Update User" %>
   </div>

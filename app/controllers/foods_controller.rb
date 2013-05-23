@@ -1,11 +1,15 @@
 class FoodsController < ApplicationController
+  before_filter :define_food, :except => [:index, :new, :create]
+
+  def define_food
+    @food = Food.find_by_id(params[:id])
+  end
 
   def index
     @foods = Food.all
   end
 
   def show
-    @food = Food.find_by_id(params[:id])
   end
 
   def new
@@ -24,14 +28,13 @@ class FoodsController < ApplicationController
     else
       render 'new'
     end
+
   end
 
   def edit
-    @food = Food.find_by_id(params[:id])
   end
 
   def update
-    @food = Food.find_by_id(params[:id])
     @food.status = params[:status]
     @food.user_id = params[:user_id]
     @food.description = params[:description]
@@ -47,7 +50,6 @@ class FoodsController < ApplicationController
   end
 
   def destroy
-    @food = Food.find_by_id(params[:id])
     @food.destroy
     redirect_to foods_url
   end

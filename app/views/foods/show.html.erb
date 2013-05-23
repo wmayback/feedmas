@@ -1,5 +1,7 @@
 <h1><%= @food.description %></h1>
 
+<h4> logged in as <%=session[:first_name]%> <%=session[:last_name]%> :: <%= session[:account_name]%>  </h4>
+
 <p>
   <b>Status:</b>
   <%= @food.status %>
