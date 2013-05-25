@@ -34,7 +34,6 @@ class UsersController < ApplicationController
     @user = User.new
 
     @user.email = params[:email]
-    @user.type = params[:type]
     @user.first_name = session[:first_name] = params[:first_name]
     @user.last_name = session[:last_name] = params[:last_name]
     @user.account_id = params[:account_id]
@@ -57,7 +56,6 @@ class UsersController < ApplicationController
 
   def update
     @user.email = params[:email]
-    @user.type = params[:type]
     @user.first_name = params[:first_name]
     @user.last_name = params[:last_name]
     @user.account_id = params[:account_id]
