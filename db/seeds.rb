@@ -21,17 +21,16 @@ end
 puts "There are now #{Account.count} rows in the Accounts table."
 
 users_hashes = [
-{:email => "maduana3@gmail.com", :type => "pantry", :first_name => "Helga", :last_name => "Smith", :account_id => 0, :phone => "847-362-2626", :mphone => "773-202-9000", :fax => "312-821-9092", :password_digest => "p" },
-{:email => "delamikeii@hotmail.com", :type => "restaurant", :first_name => "Jimmy", :last_name => "Donohugh", :account_id => 1, :phone => "847-362-7560", :mphone => "847-909-5050", :fax => "312-821-9093", :password_digest => "p" },
-{:email => "heytherelilmomma@aol.com", :type => "pantry", :first_name => "Johnny", :last_name => "Bravo", :account_id => 1, :phone => "847-707-1200", :mphone => "773-191-9090", :fax => "312-821-7773", :password_digest => "p" },
-{:email => "xxxpinoyboi3xxx@hotmail.com", :type => "restaurant", :first_name => "BillNye", :last_name => "TheScienceGuy", :account_id => 2, :phone => "800-mayback", :mphone => "312-969-6669", :fax => "haboob", :password_digest => "p" },
+{:email => "maduana3@gmail.com", :first_name => "Helga", :last_name => "Smith", :account_id => 0, :phone => "847-362-2626", :mphone => "773-202-9000", :fax => "312-821-9092", :password_digest => "p", :admin => false },
+{:email => "delamikeii@hotmail.com", :first_name => "Jimmy", :last_name => "Donohugh", :account_id => 1, :phone => "847-362-7560", :mphone => "847-909-5050", :fax => "312-821-9093", :password_digest => "p", :admin => true},
+{:email => "heytherelilmomma@aol.com", :first_name => "Johnny", :last_name => "Bravo", :account_id => 1, :phone => "847-707-1200", :mphone => "773-191-9090", :fax => "312-821-7773", :password_digest => "p", :admin => false },
+{:email => "xxxpinoyboi3xxx@hotmail.com", :first_name => "BillNye", :last_name => "TheScienceGuy", :account_id => 2, :phone => "800-mayback", :mphone => "312-969-6669", :fax => "haboob", :password_digest => "p", :admin => false },
 ]
 
 User.destroy_all
 users_hashes.each do |user|
     u = User.new
     u.email = user[:email]
-    u.type = user[:type]
     u.first_name = user[:first_name]
     u.last_name = user[:last_name]
     u.account_id = user[:account_id]
@@ -39,6 +38,7 @@ users_hashes.each do |user|
     u.mphone = user[:mphone]
     u.fax = user[:fax]
     u.password_digest = user[:password_digest]
+    u.admin = user[:admin]
     u.save
 
 end
