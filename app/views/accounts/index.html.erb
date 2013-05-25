@@ -1,17 +1,22 @@
-<h1>Accounts</h1>
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <h1 class="page-header">Accounts</h1>
 
 <p><%= link_to 'Add a New Account', new_account_url %></p>
 
-<table>
+
+
+<table class="table table-hover table-striped">
   <thead>
     <tr>
       <th>Account name  </th>
       <th>Phone  </th>
-      <th>Address line1  </th>
-      <th>Address line2  </th>
+      <th>Address Line 1  </th>
+      <th>Address Line 2  </th>
       <th>City  </th>
       <th>State  </th>
-      <th>Postcode  </th>
+      <th>Zip Code  </th>
       <th>Logo  </th>
       <th></th>
       <th></th>
@@ -29,11 +34,15 @@
       <td><%= account.city %></td>
       <td><%= account.state %></td>
       <td><%= account.postcode %></td>
-      <td><%= account.logo %></td>
+      <td>
 
-      <td><%= link_to 'Show', account_url(account) %></td>
-      <td><%= link_to 'Edit', edit_account_url(account) %></td>
-      <td><%= link_to 'Destroy', account_url(account), method: 'delete', data: { confirm: "Do you really want to delete this account?" } %></td>
+      <%= image_tag account.logo, :width => 200 %>
+
+    </td>
+
+      <td><a class="btn btn-primary "<%= link_to 'Details', account_url(account) %> <i class="icon-search"></i></td>
+      <td><a class="btn btn-info"<%= link_to 'Edit', edit_account_url(account) %></td>
+      <td><aa class="btn btn-success"<%= link_to 'Delete', account_url(account), method: 'delete', data: { confirm: "Do you really want to delete this account?" } %></td>
 
     </tr>
   <% end %>
