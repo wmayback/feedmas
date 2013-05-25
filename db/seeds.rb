@@ -21,7 +21,7 @@ end
 puts "There are now #{Account.count} rows in the Accounts table."
 
 users_hashes = [
-{:email => "maduana3@gmail.com", :first_name => "Helga", :last_name => "Smith", :account_id => Account.first.id, :phone => "847-362-2626", :mphone => "773-202-9000", :fax => "312-821-9092", :password_digest => "p", :admin => false }]
+{:email => "maduana3@gmail.com", :first_name => "Helga", :last_name => "Smith", :account_id => Account.first.id, :phone => "847-362-2626", :mphone => "773-202-9000", :fax => "312-821-9092", :password_digest => "p", :admin => false }, {:email => "test", :first_name => "Bodega", :last_name => "Capstone", :account_id => Account.last.id, :phone => "312-212-2626", :mphone => "773-202-9000", :fax => "312-821-9092", :password_digest => "p", :admin => false }]
 
 
 User.destroy_all
