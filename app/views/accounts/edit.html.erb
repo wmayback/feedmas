@@ -39,11 +39,16 @@
   </div>
 
   <div>
+    <%= label_tag :category %><br />
+    <%= text_field_tag :category %>
+  </div>
+
+  <div>
     <%= label_tag :logo %><br />
     <%= text_field_tag :logo, @account.logo %>
   </div>
 
-  
+
   <div>
     <%= submit_tag "Update Account" %>
   </div>

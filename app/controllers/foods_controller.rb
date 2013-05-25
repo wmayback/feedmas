@@ -1,12 +1,13 @@
 class FoodsController < ApplicationController
   before_filter :define_food, :except => [:index, :new, :create]
-
+ layout false
   def define_food
     @food = Food.find_by_id(params[:id])
   end
 
   def index
     @foods = Food.all
+    render layout: "main_page.html.erb"
   end
 
   def show
