@@ -21,6 +21,7 @@ class AccountsController < ApplicationController
     @account.city = params[:city]
     @account.state = params[:state]
     @account.postcode = params[:postcode]
+    @account.category = params[:category]
     @account.logo = params[:logo]
 
     if @account.save
@@ -46,7 +47,7 @@ class AccountsController < ApplicationController
     @account.state = params[:state]
     @account.postcode = params[:postcode]
     @account.postcode = params[:postcode]
-@account.category = params[:category]
+    @account.category = params[:category]
     @account.logo = params[:logo]
 
     if @account.save
