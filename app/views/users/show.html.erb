@@ -3,9 +3,8 @@
 <table>
   <thead>
     <tr>
-      <th>Account Name |</th>
-      <th>| Account ID |</th>
-      <th>| Type</th>
+      <th>Account Name</th>
+      <th>Account ID</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,7 +15,6 @@
     <tr>
       <td><%= Account.find_by_id(@user.account_id).account_name %></td>
       <td><%= @user.account_id %></td>
-      <td><%= @user.type %></td>
     </tr>
   </tbody>
 </table>
@@ -24,11 +22,6 @@
 <p>
   <b>Email:</b>
   <%= @user.email %>
-</p>
-
-<p>
-  <b>Type:</b>
-  <%= @user.type %>
 </p>
 
 <p>
