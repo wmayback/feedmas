@@ -1,4 +1,8 @@
 class Account < ActiveRecord::Base
+
+  acts_as_gmappable
+  attr_accessible :address_line1, :city, :state, :postcode, :gmaps, :latitude, :longitude
+
   validates :account_name, :uniqueness => true
   validates :account_name, :presence => true
   validates :phone, :presence => true
@@ -8,9 +12,14 @@ class Account < ActiveRecord::Base
   validates :postcode, :presence => true
 
   has_many :users
+  has_many :foods
 
   def gmaps4rails_address
-    "#{address_line1}"
+    "#{address_line1}, #{city}, #{state}, #{postcode}"
+  end
+
+  def gmaps4rails_infowindow
+    "<h1>#{city}</h1>"
   end
 end
 
