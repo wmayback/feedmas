@@ -12,15 +12,20 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <%=session[:account_name]%><span class="caret"></span></a>
 
               <ul class="dropdown-menu">
-                <li><a href="#">Setings</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Logout</a></li>
+                <li><%= link_to "Network & Settings", users_path %></li>
+                <li><%= link_to "Log Out", "/sessions", method: 'delete' %></li>
+                   </a></li>
                   <% else %>
                     <li><a href="#">Signup</a></li>
-                    <li><a href="#">Login</a></li>
                   <% end %>
-                </ul>
+                <li class="divider"></li>
+
+
+
+
+
               </ul>
+            </ul>
             </li>
           </ul>
         </div>
