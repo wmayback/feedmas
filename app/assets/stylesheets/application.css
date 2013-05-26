@@ -11,6 +11,7 @@
 
  *= require bootstrap
  *= require bootstrap-responsive
+ *= gmaps4rails
  *= require_tree .
  */
 
@@ -6479,3 +6480,36 @@
  .mal {
    margin-left: 20px;
  }
+
+ #map img {
+   max-width: none;
+ }
+ #map label {
+   width: auto; display:inline;
+ }
+  div.map_container_renamed #map {
+   height : 100%;
+   width : 100%;
+   top : 60px;
+   left : 0;
+   position : absolute;
+   z-index : 200;
+ }
+ .side-panel {
+   position: absolute;
+   bottom: 0;
+   right: -640px;
+   top: 60px;
+   width: 400px;
+
+
+
+   left: 0;
+   z-index: 300;
+   background-color: #fff;
+   -webkit-box-shadow: 2px 0 20px rgba(50,50,50,.75);
+   -moz-box-shadow: 2px 0 20px rgba(50,50,50,.75);
+   box-shadow: 2px 0 20px rgba(50,50,50,.75);
+ }
+
+

@@ -2,6 +2,7 @@ class AccountsController < ApplicationController
 
   def index
     @accounts = Account.all
+    @json = Account.all.to_gmaps4rails
   end
 
   def show

@@ -12,7 +12,7 @@
     <tr>
         <% if session[:account_name].present? %>
 
-        <th><%= form_tag("/sessions", method: 'delete') do %>
+      <li><th><%= form_tag("/sessions", method: 'delete') do %></li>
         <div>
         <%= submit_tag "Log out" %>
         </div>
@@ -48,7 +48,7 @@
 
 <h3> <%=session[:account_name]%> authorized Users:</h3>
 
-<table>
+<table class="table table-bordered table-hover">
   <thead>
     <tr>
       <th>Email</th>
@@ -88,7 +88,7 @@
 
 <h4>Users In Our feedMore Network</h4>
 
-<table>
+<table  class="table table-bordered table-hover">
   <thead>
     <tr>
       <th>Email</th>
@@ -109,14 +109,13 @@
       if  Account.find_by_id(user.account_id).account_name != session[:account_name]%>
     <tr>
       <td><%= user.email %></td>
-
       <td><%= user.first_name %></td>
       <td><%= user.last_name %></td>
       <td><%= Account.find_by_id(user.account_id).account_name %></td>
       <td><%= user.phone %></td>
       <td><%= user.mphone %></td>
       <td><%= user.fax %></td>
-      <td><%= link_to 'Show', user_url(user) %></td>
+      <td><%= link_to 'Show', user_url(user), class: 'btn' %></td>
     </tr>
      <% end %>
   <% end %>

@@ -7,6 +7,7 @@ class FoodsController < ApplicationController
 
   def index
     @foods = Food.all
+    @json = Account.all.to_gmaps4rails
     render layout: "main_page.html.erb"
   end
 
