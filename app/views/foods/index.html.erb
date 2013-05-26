@@ -54,7 +54,7 @@
       <th>Status(Pick up by)</th>
       <th>Description</th>
       <th>Donor</th>
-      <th>Claim</th>
+      <th>Claimed By:</th>
       <th></th>
       <th></th>
       <th></th>
@@ -67,8 +67,7 @@
       <td><%= food.status %></td>
       <td><%= food.description %></td>
       <td><%= food.user_id %></td>
-      <td><%= food.claimant %></td>
-
+      <td> <%=food.claimant %></td>
       <td><%= link_to 'Show', food_url(food) %></td>
       <td><%= link_to 'Edit', edit_food_url(food) %></td>
       <td><%= link_to 'Delete Entry', food_url(food), method: 'delete', data: { confirm: "Do you really want to delete this food?" } %></td>
