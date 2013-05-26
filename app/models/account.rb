@@ -8,4 +8,10 @@ class Account < ActiveRecord::Base
   validates :postcode, :presence => true
 
   has_many :users
+
+  def gmaps4rails_address
+    "#{address_line1}"
+  end
 end
+
+
