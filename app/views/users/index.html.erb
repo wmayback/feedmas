@@ -1,8 +1,7 @@
 <h1>Network and Account Settings</h1>
 
 <% if session[:account_name].present? %>
-<h4> ::logged in as <%=session[:first_name]%> <%=session[:last_name]%> :: <%= session[:account_name]%> :: account number<%= Account.find_by_account_name(session[:account_name]).id%> ::  </h4>
-
+<h4> ::logged in as <%=session[:first_name]%> <%=session[:last_name]%> :: <%= session[:account_name]%> :: account number<%= Account.find_by_account_name(session[:account_name]).id%> ::</h4>
 <%end%>
 
 
