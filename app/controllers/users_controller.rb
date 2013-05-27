@@ -33,9 +33,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new
 
+    # = session[:first_name]
+    # = session[:last_name]
+
     @user.email = params[:email]
-    @user.first_name = session[:first_name] = params[:first_name]
-    @user.last_name = session[:last_name] = params[:last_name]
+    @user.first_name = params[:first_name]
+    @user.last_name  = params[:last_name]
     @user.account_id = params[:account_id]
     @user.phone = params[:phone]
     @user.mphone = params[:mphone]
@@ -43,7 +46,9 @@ class UsersController < ApplicationController
     @user.password = params[:password]
     @user.password_confirmation = params[:password_confirmation]
 
-    if @user.save
+    if session[:first_name].present? && @user.save
+      redirect_to "/users"
+    elsif @user.save
       redirect_to "/sessions/new"
     else
       render 'new'
