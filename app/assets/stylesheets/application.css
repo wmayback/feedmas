@@ -1454,6 +1454,8 @@
    border-left-width: 6px;
  }
  .navbar {
+  position: relative;
+  z-index: 130;
    font-size: 15.988px;
    /* 16px */
 
@@ -6493,7 +6495,7 @@
    top : 60px;
    left : 0;
    position : absolute;
-   z-index : 200;
+   z-index : -130;
  }
 
 
@@ -6503,10 +6505,10 @@
    position: absolute;
    bottom: 0;
    right: -640px;
-   top: 60px;
+   top: 65px;
    width: 400px;
     left: 0;
-   z-index: 300;
+   z-index: 100;
    background-color: #fff;
    -webkit-box-shadow: 2px 0 20px rgba(50,50,50,.75);
    -moz-box-shadow: 2px 0 20px rgba(50,50,50,.75);
