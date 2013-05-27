@@ -3,8 +3,9 @@
     <% @foods.each do |food| %>
     <li>
       <%= image_tag 'http://baconfestchicago.com/wp-content/uploads/2010/09/purple-pig.jpg', class: 'logo' %>
-      <div class="desc"><%= food.description %></div>
+      <div class="desc"><%= link_to food.description, food_path(food), id: "show_link", remote: true %></div>
       <div class="stat"><%= food.status %></div>
+      <div id="show_panel"></div>
     </li>
     <% end %>
   </ul>
