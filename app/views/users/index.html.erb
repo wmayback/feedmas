@@ -1,17 +1,15 @@
 <h1>Network and Account Settings</h1>
 
 <% if session[:account_name].present? %>
-<h4> ::logged in as <%=session[:first_name]%> <%=session[:last_name]%> :: <%= session[:account_name]%> :: account number<%= Account.find_by_account_name(session[:account_name]).id%> ::</h4>
+<h4> ::logged in as <%=session[:first_name]%> <%=session[:last_name]%> :: <%= session[:account_name]%> :: account number <%= Account.find_by_account_name(session[:account_name]).id%>::</h4>
 <%end%>
-
-
 
 <table>
   <thead>
     <tr>
         <% if session[:account_name].present? %>
 
-      <li><th><%= form_tag("/sessions", method: 'delete') do %></li>
+        <th><%= form_tag("/sessions", method: 'delete') do %>
         <div>
         <%= submit_tag "Log out" %>
         </div>
@@ -45,18 +43,18 @@
 
 <p><%= link_to 'Add a New User', new_user_url %></p>
 
-<h3> <%=session[:account_name]%> authorized Users:</h3>
+<h3> <%=session[:account_name]%> authorized users:</h3>
 
 <table class="table table-bordered table-hover">
   <thead>
     <tr>
-      <th>Email</th>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Account</th>
-      <th>Phone</th>
-      <th>Mphone</th>
-      <th>Fax</th>
+      <th>email</th>
+      <th>first name</th>
+      <th>last name</th>
+      <th>account</th>
+      <th>phone</th>
+      <th>mobile phone</th>
+      <th>fax</th>
       <th></th>
       <th></th>
       <th></th>
@@ -85,18 +83,18 @@
   </tbody>
 </table>
 
-<h4>Users In Our feedMore Network</h4>
+<h4>users in our feedsMore network:</h4>
 
 <table  class="table table-bordered table-hover">
   <thead>
     <tr>
-      <th>Email</th>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Account</th>
-      <th>Phone</th>
-      <th>Mphone</th>
-      <th>Fax</th>
+      <th>email</th>
+      <th>first name</th>
+      <th>last name</th>
+      <th>account</th>
+      <th>phone</th>
+      <th>mobile phone</th>
+      <th>fax</th>
       <th></th>
       <th></th>
       <th></th>

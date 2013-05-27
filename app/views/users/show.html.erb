@@ -1,51 +1,45 @@
-<h1> here's some stuff about <%= @user.first_name %>: </h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Account Name</th>
-      <th>Account ID</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= Account.find_by_id(@user.account_id).account_name %></td>
-      <td><%= @user.account_id %></td>
-    </tr>
-  </tbody>
-</table>
+<h4> here's some info on <%= @user.first_name %>: </h4>
 
 <p>
-  <b>Email:</b>
+  <b>account:</b>
+  <%= Account.find_by_id(@user.account_id).account_name %>
+</p>
+
+<p>
+  <% if (@user.account_id).to_i == (Account.find_by_account_name(session[:account_name]).id) %>
+  <b>account number:</b>
+  <%= @user.account_id %>
+  <% end %>
+</p>
+
+
+<p>
+  <b>email:</b>
   <%= @user.email %>
 </p>
 
 <p>
-  <b>First name:</b>
+  <b>first name:</b>
   <%= @user.first_name %>
 </p>
 
 <p>
-  <b>Last name:</b>
+  <b>last name:</b>
   <%= @user.last_name %>
 </p>
 
 <p>
-  <b>Phone:</b>
+  <b>phone:</b>
   <%= @user.phone %>
 </p>
 
 <p>
-  <b>Mphone:</b>
+  <b>mobile phone:</b>
   <%= @user.mphone %>
 </p>
 
 <p>
-  <b>Fax:</b>
+  <b>fax:</b>
   <%= @user.fax %>
 </p>
 

@@ -43,7 +43,9 @@ class UsersController < ApplicationController
     @user.password = params[:password]
     @user.password_confirmation = params[:password_confirmation]
 
-    if @user.save
+    if session[:account_name].present? && @user.save
+      redirect_to "/users/"
+    elsif @user.save
       redirect_to "/sessions/new"
     else
       render 'new'
