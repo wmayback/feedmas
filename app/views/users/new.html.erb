@@ -1,4 +1,8 @@
-<h1>New User for <%=session[:account_name] %></h1>
+<h2>add a user for <%=session[:account_name] %></h2>
+
+<% if session[:first_name].present? %>
+<h4> ::logged in as <%=session[:first_name]%> <%=session[:last_name]%> :: <%= session[:account_name]%> :: account number <%= Account.find_by_account_name(session[:account_name]).id%>::</h4>
+<%end%>
 
 
 <%= form_tag(users_url, method: 'post') do %>
