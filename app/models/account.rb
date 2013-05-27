@@ -1,7 +1,7 @@
 class Account < ActiveRecord::Base
 
   acts_as_gmappable
-  attr_accessible :address_line1, :city, :state, :postcode, :gmaps, :latitude, :longitude
+  attr_accessible :address_line1, :city, :state, :logo, :postcode, :gmaps, :latitude, :longitude
 
   validates :account_name, :uniqueness => true
   validates :account_name, :presence => true

@@ -1,4 +1,13 @@
-<div class="side-panel"></div>
+<div class="side-panel">
+  <ul>
+    <% @foods.each do |food| %>
+    <li>
+      <%= image_tag 'http://baconfestchicago.com/wp-content/uploads/2010/09/purple-pig.jpg', class: 'logo' %>
+      <div class="desc"><%= food.description %></div>
+      <div class="stat"><%= food.status %></div>
+    </li>
+    <% end %>
+  </ul>
+</div>
 
 <%= gmaps( :map_options => { :container_class => "map_container_renamed" }, "markers" => {"data" => @json, "options" => {"auto_zoom" => false} }) %>
-
