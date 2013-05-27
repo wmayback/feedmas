@@ -6493,7 +6493,7 @@
    height : 100%;
    width : 100%;
    top : 60px;
-   left : 0;
+   left : 400px;
    position : absolute;
    z-index : -130;
  }
@@ -6565,7 +6565,7 @@
  .side-panel .stat {
   position: absolute;
  top: 30px;
- right: 15px;
+ right: 25px;
  font-size: 16px;
  font-weight: bold;
  color: black;
