@@ -12,6 +12,11 @@ class FoodsController < ApplicationController
   end
 
   def show
+
+    respond_to do |format|
+      format.html { redirect_to tasks_url }
+      format.js { render :layout => false }
+    end
   end
 
   def new
