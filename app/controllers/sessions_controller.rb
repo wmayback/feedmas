@@ -15,6 +15,7 @@ class SessionsController < ApplicationController
       session[:first_name] = @user.first_name
       session[:last_name] = @user.last_name
       session[:account_name] = Account.find_by_id(@user.account_id).account_name
+      cookies[:new_account] = "false"
     else
       redirect_to "/sessions/new", notice: "Sign-in unsuccessful."
     end

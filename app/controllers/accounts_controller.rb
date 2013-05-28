@@ -17,7 +17,7 @@ class AccountsController < ApplicationController
   def create
     @account = Account.new
     @account.account_name = session[:account_name] = params[:account_name]
-    @account.phone = params[:phone]
+    @account.phone = session[:phone] = params[:phone]
     @account.address_line1 = params[:address_line1]
     @account.address_line2 = params[:address_line2]
     @account.city = params[:city]
@@ -26,8 +26,11 @@ class AccountsController < ApplicationController
     @account.category = params[:category]
     @account.logo = params[:logo]
 
+
+
     if @account.save
       redirect_to new_user_url
+      cookies[:new_account] = "true"
     else
       render 'new'
     end
