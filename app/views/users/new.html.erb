@@ -1,4 +1,9 @@
-<h2>add a user for <%=session[:account_name] %></h2>
+<% if session[:account_name].present? %>
+<h2>Add a user for <%=session[:account_name] %></h2>
+<% else %>
+<h2>Register as a new User for an existing Account</h2>
+<% end %>
+
 
 <% if session[:first_name].present? %>
 <h4> ::logged in as <%=session[:first_name]%> <%=session[:last_name]%> :: <%= session[:account_name]%> :: account number <%= Account.find_by_account_name(session[:account_name]).id%>::</h4>
@@ -10,11 +15,6 @@
   <div>
     <% if session[:account_name].present? %>
     <%= hidden_field_tag :account_id, Account.find_by_account_name(session[:account_name]).id %>
-
-    <%else%>
-
-    <%= select_tag :account_id %>
-
     <% end %>
   </div>
 
