@@ -7,6 +7,7 @@ class AccountsController < ApplicationController
 
   def show
     @account = Account.find_by_id(params[:id])
+    @users = User.all
   end
 
   def new
