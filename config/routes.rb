@@ -1,7 +1,7 @@
 Feedmas::Application.routes.draw do
   #login practice
 
-  get '/sessions/new', controller: "Sessions", action: "new"
+  get '/sessions/new', controller: "Sessions", action: "new", as: 'new_session'
   post '/sessions', controller: "Sessions", action: "create"
   delete '/sessions', controller: "Sessions", action: "destroy"
 
