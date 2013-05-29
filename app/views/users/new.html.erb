@@ -19,11 +19,19 @@
     <% end %>
   </div>
 
-    <div>
+  <div>
     <% if cookies[:new_account] == "true" %>
     <%= hidden_field_tag :admin, true %>
     <% else %>
     <%= hidden_field_tag :admin, false %>
+    <% end %>
+  </div>
+
+  <div>
+    <% if cookies[:new_account] == "true" || session[:account_name].present? %>
+    <% else %>
+          <%= label_tag :account_id, "Account ID Number ::supplied by an Administrator::" %><br />
+          <%= text_field_tag :account_id %>
     <% end %>
   </div>
 
