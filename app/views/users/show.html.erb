@@ -1,6 +1,17 @@
 <h4> here's some information on <%= @user.first_name %>: </h4>
 
 <p>
+  <% if (@user.account_id).to_i == (Account.find_by_account_name(session[:account_name]).id) %>
+  <b>administrative access?</b>
+  <% if @user.admin == true %>
+  <b> Yes </b>
+  <%else%>
+  <b> No </b>
+  <%end%>
+  <%end%>
+</p>
+
+<p>
   <b>account:</b>
   <%= Account.find_by_id(@user.account_id).account_name %>
 </p>
