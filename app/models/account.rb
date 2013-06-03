@@ -10,6 +10,7 @@ class Account < ActiveRecord::Base
   validates :city, :presence => true
   validates :state, :presence => true
   validates :postcode, :presence => true
+  validates :category, :presence => true
 
   has_many :users
   has_many :foods
