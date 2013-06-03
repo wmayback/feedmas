@@ -43,10 +43,10 @@
     <%= text_field_tag :postcode %>
   </div>
 
-    <div>
-    <%= label_tag :category, "Pantry or Restaurant" %>
-    <%= text_field_tag :category%>
-  </div>
+<div>
+<%= select_tag(:category, options_for_select(["Pantry", "Restaurant"])) %>
+</div>
+
 
 <div>
     <%= label_tag :logo, "Logo" %>
