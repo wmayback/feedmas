@@ -21,8 +21,7 @@ account_hashes.each do |account|
 end
 puts "There are now #{Account.count} rows in the Accounts table."
 
-users_hashes = [
-{:email => "maduana3@gmail.com", :first_name => "Helga", :last_name => "Smith", :account_id => Account.first.id, :phone => "847-362-2626", :mphone => "773-202-9000", :fax => "312-821-9092", :password => "p", :admin => true }, {:email => "test", :first_name => "Bodega", :last_name => "Capstone", :account_id => Account.last.id, :phone => "312-212-2626", :mphone => "773-202-9000", :fax => "312-821-9092", :password => "p", :admin => true }]
+users_hashes = [ {:email => "chipotle3@gmail.com", :first_name => "Chip", :last_name => "Buckets", :account_id => Account.first.id, :phone => "847-362-2626", :mphone => "773-202-9000", :fax => "312-821-9092", :password => "p", :admin => false }, {:email => "maduana3@gmail.com", :first_name => "Helga", :last_name => "Smith", :account_id => Account.first.id, :phone => "847-362-2626", :mphone => "773-202-9000", :fax => "312-821-9092", :password => "p", :admin => true }, {:email => "test", :first_name => "Bodega", :last_name => "Capstone", :account_id => Account.last.id, :phone => "312-212-2626", :mphone => "773-202-9000", :fax => "312-821-9092", :password => "p", :admin => true }]
 
 
 User.destroy_all
@@ -41,5 +40,21 @@ users_hashes.each do |user|
 
 end
 puts "There are now #{User.count} rows in the Users table."
+
+foods_hashes = [{:status => "9:00 PM", :user_id => Account.first.account_name, :description => "Banana Bread"}, {:status => "6:45 PM", :user_id => Account.first.account_name, :description => "Ravioli"}, {:status => "11:00 PM", :user_id => Account.last.account_name, :description => "Tortilla Chips"}]
+
+Food.destroy_all
+foods_hashes.each do |food|
+    f = Food.new
+    f.status = food[:status]
+    f.user_id = food[:user_id]
+    f.description = food[:description]
+    f.claimant = food[:claimant]
+    f.save
+
+end
+puts "There are now #{Food.count} rows in the Foods table."
+
+
 
 # id: integer, email: string, type: string, first_name: string, last_name: string, account_id: string, phone: string, mphone: string, fax: string, password_digest: string
