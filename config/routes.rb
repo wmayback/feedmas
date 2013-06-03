@@ -1,5 +1,8 @@
 Feedmas::Application.routes.draw do
-  #login practice
+
+  root :to => 'sessions#new'
+
+    #login practice
 
   get '/sessions/new', controller: "Sessions", action: "new", as: 'new_session'
   post '/sessions', controller: "Sessions", action: "create"
