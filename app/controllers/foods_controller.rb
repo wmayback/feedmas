@@ -24,13 +24,13 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = Food.new
-    @food.status = params[:status]
-    @food.user_id = params[:user_id]
-    @food.description = params[:description]
+    # @food = Food.new
+    # @food.status = params[:status]
+    # @food.account_id = current_user.id
+    # @food.description = params[:description]
 
-
-    if @food.save
+    @food = current_user.account.foods.create({status: params[:status], description: params[:description]})
+    if @food
       redirect_to foods_url
     else
       render 'new'

@@ -68,8 +68,7 @@
     </tr>
   </thead>
 
-    <% @foods.each do |food|
-    if  Food.find_by_user_id(food.user_id).user_id == session[:account_name]%>
+    <% @foods.each do |food| %>
 
         <tbody>
 
@@ -100,7 +99,6 @@
 
             <%end%>
           </tr>
-        <% end %>
         <% end %>
         </tbody>
       </table>

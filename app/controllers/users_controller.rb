@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    @foods = Food.all
+    @foods = current_user.account.foods
   end
 
   def show
