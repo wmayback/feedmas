@@ -43,6 +43,50 @@
 
 <p><%= link_to 'Add a New User', new_user_url %></p>
 
+
+<h3> <%=session[:account_name]%> outstanding foods:</h3>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>status</th>
+      <th>description</th>
+      <th>claimed</th>
+      <th>by</th>
+      <th>phone</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @foods.each do |food|
+    if  Food.find_by_user_id(food.user_id).user_id == session[:account_name]%>
+    <tr>
+      <td><%= food.status %></td>
+      <td><%= food.description %></td>
+      <td><% if food.claimant.present? %>
+          <%="yes"%>
+          <%else%>
+          <%="no"%>
+          <%end%>
+      </td>
+      <td><%= food.try(:claimant) %></td>
+      <td><%= Account.find_by_account_name(food.claimant).try(:phone) %></td>
+
+      <td><%= link_to 'Show', food_url(food) %></td>
+      <td><%= link_to 'Edit', edit_food_url(food) %></td>
+      <td><%= link_to 'Destroy', food_url(food), method: 'delete', data: { confirm: "Do you really want to delete this item?" } %></td>
+
+    </tr>
+  <% end %>
+  <% end %>
+  </tbody>
+</table>
+
 <h3> <%=session[:account_name]%> authorized users:</h3>
 
 <table class="table table-bordered table-hover">

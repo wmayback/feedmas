@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @foods = Food.all
   end
 
   def show
