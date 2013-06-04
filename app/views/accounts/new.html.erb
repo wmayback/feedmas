@@ -5,6 +5,9 @@
 
 <%= form_tag(accounts_url, method: 'post') do %>
 
+<p></br>
+<%= select_tag(:category, options_for_select(["Pantry", "Restaurant"]), :prompt => "Please select account type") %>
+</p>
 
   <div>
     <%= label_tag :account_name, "Name of organization or restaurant*" %>
@@ -42,10 +45,6 @@
     <%= label_tag :postcode, "Postcode*" %>
     <%= text_field_tag :postcode %>
   </div>
-
-<div>
-<%= select_tag(:category, options_for_select(["Pantry", "Restaurant"]), :prompt => "Please choose account type") %>
-</div>
 
 
 <div>
