@@ -51,25 +51,7 @@
  </thead>
 </table>
 
-<<<<<<< HEAD
 <% if Account.find_by_account_name(session[:account_name]).category == "Restaurant" %>
-
-  <h3> <%=session[:account_name]%> outstanding foods:</h3>
-
-    <table class="table table-bordered table-hover">
-      <thead>
-        <tr>
-          <th>status</th>
-          <th>description</th>
-          <th>claimed</th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-=======
-
 
 <h3> <%=session[:account_name]%>'s outstanding food items:</h3>
 
@@ -85,7 +67,6 @@
       <th></th>
     </tr>
   </thead>
->>>>>>> 5be659f126f05b64c60d71c71593540bd50ceb11
 
     <% @foods.each do |food|
     if  Food.find_by_user_id(food.user_id).user_id == session[:account_name]%>
@@ -158,12 +139,6 @@
             <td><%= link_to 'Destroy', food_url(food), method: 'delete', data: { confirm: "Do you really want to delete this item?" } %></td>
                 <%else%> <%="no"%>
                 <%end%>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
           </tr>
         <% end %>
 
