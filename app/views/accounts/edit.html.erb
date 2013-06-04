@@ -39,8 +39,7 @@
   </div>
 
   <div>
-    <%= label_tag :category %><br />
-    <%= text_field_tag :category %>
+    <%= select_tag(:category, options_for_select(["Pantry", "Restaurant"]), :prompt => @account.category) %>
   </div>
 
   <div>
