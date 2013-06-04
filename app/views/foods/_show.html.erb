@@ -25,7 +25,7 @@
   <%= @food.claimant %>
 </p>
 
-<a class="btn-claim" href="#">Claim</a><br>
+<%= link_to 'Claims', claim_url, class: 'btn-claim', method: 'create', data: { confirms: "Do you really want to claim this?"} %> <br>
 
 <div class="GHLLCJDVB GHLLCJOL"></div>
 </div>
