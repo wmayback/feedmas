@@ -21,6 +21,12 @@ class Account < ActiveRecord::Base
 
   def gmaps4rails_infowindow
     "<h1>#{city}</h1>"
+      "<div> <b> #{address_line1},
+    <div> #{city}, #{state} #{postcode} </div> </b>
+    <div> Phone: #{phone} </div>
+    </div>"
+
+
   end
 end
 
