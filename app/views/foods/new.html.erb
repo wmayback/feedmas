@@ -13,12 +13,12 @@
 
   <div>
     <%= label_tag :status, "Pick-Up By"  %><br />
-    <%= text_field_tag :status %>
+    <%= text_field_tag :status, "", :size => "30", :placeholder => 'Pick-Up Time!! i.e., "8:00 PM"' %>
   </div>
 
   <div>
     <%= label_tag :description %><br />
-    <%= text_area_tag :description, "", :size => "30x5", :placeholder => 'Please provide a brief description of items to be donated, i.e., "40 frozen bagels."' %>
+    <%= text_area_tag :description, "", :size => "30x5", :placeholder => 'Please provide a brief description of items to be donated, i.e., "40 frozen bagels"' %>
   </div>
 
   <div>
