@@ -1,7 +1,7 @@
 account_hashes = [
-{ :account_name => "Olive Branch Mission", :category => "Pantry", :phone => "847-807-9616",:address_line1 => "6310 S Claremont Ave",:address_line2 => "Unit 1", :city => "Chicago", :state => "IL", :postcode => "60605", :logo => "http://static.wix.com/media/d7240f_a9d4bb2eca2150a7191713abf4b9071c.jpg_srz_231_56_75_22_0.50_1.20_0.00_jpg_srz" },
-{ :account_name => "A Just Harvest", :category => "Pantry", :phone => "847-807-9617", :address_line1 => "7649 North Paulina", :address_line2 => "Unit 3", :city => "Chicago", :state => "IL", :postcode => "60606", :logo => "http://commonpantry.org/wp-content/uploads/2011/07/common-pantry-logo-address.png" },
-{ :account_name => "Panera Bread", :category => "Restaurant", :phone => "847-807-9619", :address_line1 => "250 S. Wacker Dr.", :adress_line2 => "Unit 2", :city => "Chicago", :state => "IL", :postcode => "60603", :logo => "http://www.panerabread.com/imagesNEW/logo.png" }
+{ :account_name => "Olive Branch Mission", :category => "Pantry", :phone => "847-807-9616",:address_line1 => "6310 S Claremont Ave",:address_line2 => "Unit 1", :city => "Chicago", :state => "IL", :postcode => "60605", :image => File.open("#{Rails.root}/db/seeds_data/olivebranch.jpg") },
+{ :account_name => "A Just Harvest", :category => "Pantry", :phone => "847-807-9617", :address_line1 => "7649 North Paulina", :address_line2 => "Unit 3", :city => "Chicago", :state => "IL", :postcode => "60606", :image => File.open("#{Rails.root}/db/seeds_data/olivebranch.jpg") },
+{ :account_name => "Panera Bread", :category => "Restaurant", :phone => "847-807-9619", :address_line1 => "250 S. Wacker Dr.", :adress_line2 => "Unit 2", :city => "Chicago", :state => "IL", :postcode => "60603", :image => File.open("#{Rails.root}/db/seeds_data/olivebranch.jpg") }
 ]
 
 Account.destroy_all
@@ -15,7 +15,7 @@ account_hashes.each do |account|
     a.city = account[:city]
     a.state = account[:state]
     a.postcode = account[:postcode]
-    a.logo = account[:logo]
+    a.image = account[:image]
     a.save
 
 end

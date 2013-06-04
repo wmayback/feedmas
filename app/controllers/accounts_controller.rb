@@ -24,7 +24,8 @@ class AccountsController < ApplicationController
     @account.state = params[:state]
     @account.postcode = params[:postcode]
     @account.category = params[:category]
-    @account.logo = params[:logo]
+    @account.image = params[:image]
+
 
 
 

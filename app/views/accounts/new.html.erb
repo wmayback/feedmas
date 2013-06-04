@@ -3,7 +3,7 @@
 <p>If you've already registered an account with us, please <%= link_to 'add a new user', new_user_url %> or <%= link_to 'sign in.', new_session_url %></p>
 
 
-<%= form_tag(accounts_url, method: 'post') do %>
+<%= form_tag(accounts_url, method: 'post', multipart: true) do %>
 
 <p></br>
 <%= select_tag(:category, options_for_select(["Pantry", "Restaurant"]), :prompt => "Please select account type") %>
@@ -46,22 +46,10 @@
     <%= text_field_tag :postcode %>
   </div>
 
-<<<<<<< HEAD
-
-<div>
-    <%= label_tag :logo, "Logo" %>
-    <%= text_field_tag :logo %>
-  </div>
-
-=======
-<div>
-<%= select_tag(:category, options_for_select(["Pantry", "Restaurant"]), :prompt => "Please choose account type") %>
-</div>
 
 <div> Please upload logo image</div>
       <%= file_field_tag :image %>
 </div>
->>>>>>> carrierwave
 
   <div>
     <%= submit_tag "Create Account" %>
