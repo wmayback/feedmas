@@ -1,6 +1,8 @@
 <h1>new food to F E E D the N E E D</h1>
 
-<h4> logged in as <%=session[:first_name]%> <%=session[:last_name]%> :: <%= session[:account_name]%>  </h4>
+<% if session[:first_name].present? %>
+<h4> ::logged in as <%=session[:first_name]%> <%=session[:last_name]%> :: <%= session[:account_name]%> :: account number <%= Account.find_by_account_name(session[:account_name]).id%>:: type: <%= Account.find_by_account_name(session[:account_name]).category%>::</h4>
+<%end%>
 
 
 <%= form_tag(foods_url, method: 'post') do %>
