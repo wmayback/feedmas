@@ -1,7 +1,7 @@
 account_hashes = [
 { :account_name => "Olive Branch Mission", :category => "Pantry", :phone => "847-807-9616",:address_line1 => "6310 S Claremont Ave",:address_line2 => "Unit 1", :city => "Chicago", :state => "IL", :postcode => "60605", :logo => "http://static.wix.com/media/d7240f_a9d4bb2eca2150a7191713abf4b9071c.jpg_srz_231_56_75_22_0.50_1.20_0.00_jpg_srz" },
 { :account_name => "A Just Harvest", :category => "Pantry", :phone => "847-807-9617", :address_line1 => "7649 North Paulina", :address_line2 => "Unit 3", :city => "Chicago", :state => "IL", :postcode => "60606", :logo => "http://commonpantry.org/wp-content/uploads/2011/07/common-pantry-logo-address.png" },
-{ :account_name => "Panera Bread", :category => "Pantry", :phone => "847-807-9619", :address_line1 => "250 S. Wacker Dr.", :adress_line2 => "Unit 2", :city => "Chicago", :state => "IL", :postcode => "60603", :logo => "http://www.panerabread.com/imagesNEW/logo.png" }
+{ :account_name => "Panera Bread", :category => "Restaurant", :phone => "847-807-9619", :address_line1 => "250 S. Wacker Dr.", :adress_line2 => "Unit 2", :city => "Chicago", :state => "IL", :postcode => "60603", :logo => "http://www.panerabread.com/imagesNEW/logo.png" }
 ]
 
 Account.destroy_all
@@ -21,7 +21,7 @@ account_hashes.each do |account|
 end
 puts "There are now #{Account.count} rows in the Accounts table."
 
-users_hashes = [ {:email => "chipotle3@gmail.com", :first_name => "Chip", :last_name => "Buckets", :account_id => Account.first.id, :phone => "847-362-2626", :mphone => "773-202-9000", :fax => "312-821-9092", :password => "p", :admin => false }, {:email => "maduana3@gmail.com", :first_name => "Helga", :last_name => "Smith", :account_id => Account.first.id, :phone => "847-362-2626", :mphone => "773-202-9000", :fax => "312-821-9092", :password => "p", :admin => true }, {:email => "test", :first_name => "Bodega", :last_name => "Capstone", :account_id => Account.last.id, :phone => "312-212-2626", :mphone => "773-202-9000", :fax => "312-821-9092", :password => "p", :admin => true }]
+users_hashes = [ {:email => "test2", :first_name => "Chip", :last_name => "Buckets", :account_id => Account.first.id, :phone => "847-362-2626", :mphone => "773-202-9000", :fax => "312-821-9092", :password => "p", :admin => false }, {:email => "maduana3@gmail.com", :first_name => "Helga", :last_name => "Smith", :account_id => Account.first.id, :phone => "847-362-2626", :mphone => "773-202-9000", :fax => "312-821-9092", :password => "p", :admin => true }, {:email => "test", :first_name => "Bodega", :last_name => "Capstone", :account_id => Account.last.id, :phone => "312-212-2626", :mphone => "773-202-9000", :fax => "312-821-9092", :password => "p", :admin => true }]
 
 
 User.destroy_all

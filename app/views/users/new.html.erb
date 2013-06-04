@@ -6,8 +6,9 @@
 
 
 <% if session[:first_name].present? %>
-<h4> ::logged in as <%=session[:first_name]%> <%=session[:last_name]%> :: <%= session[:account_name]%> :: account number <%= Account.find_by_account_name(session[:account_name]).id%>::</h4>
+<h4> ::logged in as <%=session[:first_name]%> <%=session[:last_name]%> :: <%= session[:account_name]%> :: account number <%= Account.find_by_account_name(session[:account_name]).id%>:: type: <%= Account.find_by_account_name(session[:account_name]).category%>::</h4>
 <%end%>
+
 
 
 <%= form_tag(users_url, method: 'post') do %>
