@@ -5,6 +5,7 @@
           <ul class="nav">
             <% if session[:account_name].present? %>
               <li><%= link_to 'Foods', foods_path %></li>
+              <li><%= link_to 'Add Food', "foods/new" %></li>
           </ul>
           <ul class="profileBar">
             <li class="user visible-desktop"><img src="https://lh6.googleusercontent.com/-4DWbyVDfeZk/AAAAAAAAAAI/AAAAAAAAAAA/NG-rY4cwl40/s96-c/photo.jpg"></li>

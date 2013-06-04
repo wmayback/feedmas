@@ -21,6 +21,12 @@
         </div>
         <%end%></th>
 
+        <th><%= form_tag("foods/new", method: 'get') do %>
+        <div>
+        <%= submit_tag "Add New Food" %>
+        </div>
+        <%end%></th>
+
         <%else%>
 
         <th><%= form_tag("/sessions/new", method: 'get') do %>
