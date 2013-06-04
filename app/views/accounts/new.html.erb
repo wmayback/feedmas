@@ -47,12 +47,9 @@
 <%= select_tag(:category, options_for_select(["Pantry", "Restaurant"]), :prompt => "Please choose account type") %>
 </div>
 
-
-<div>
-    <%= label_tag :logo, "Logo" %>
-    <%= text_field_tag :logo %>
-  </div>
-
+<div> Please upload logo image</div>
+      <%= file_field_tag :image %>
+</div>
 
   <div>
     <%= submit_tag "Create Account" %>
