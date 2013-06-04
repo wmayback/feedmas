@@ -53,8 +53,8 @@
       <th>description</th>
       <th>claimed</th>
       <th>by</th>
+      <th>with</th>
       <th>phone</th>
-      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -74,8 +74,9 @@
           <%="no"%>
           <%end%>
       </td>
-      <td><%= food.try(:claimant) %></td>
-      <td><%= Account.find_by_account_name(food.claimant).try(:phone) %></td>
+      <td><%= User.find_by_email(food.try(:claimant)).try(:first_name) %> <%= User.find_by_email(food.try(:claimant)).try(:last_name) %></td>
+      <td><%= Account.find_by_id(User.find_by_email(food.try(:claimant)).try(:account_id)).try(:account_name) %></td>
+      <td><%= User.find_by_email(food.try(:claimant)).try(:phone) %></td>
 
       <td><%= link_to 'Show', food_url(food) %></td>
       <td><%= link_to 'Edit', edit_food_url(food) %></td>
