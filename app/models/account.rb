@@ -1,7 +1,7 @@
 class Account < ActiveRecord::Base
 
   acts_as_gmappable
-  attr_accessible :address_line1, :city, :state, :logo, :postcode, :gmaps, :latitude, :longitude
+  attr_accessible :address_line1, :city, :state, :logo, :postcode, :gmaps, :latitude, :longitude, :image
 
   validates :account_name, :uniqueness => true
   validates :account_name, :presence => true
@@ -14,6 +14,8 @@ class Account < ActiveRecord::Base
 
   has_many :users
   has_many :foods
+
+  mount_uploader :image, ImageUploader
 
   def gmaps4rails_address
     "#{address_line1}, #{city}, #{state}, #{postcode}"
