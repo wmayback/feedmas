@@ -9,7 +9,11 @@ class SessionsController < ApplicationController
 
     if @user.present? && @user.authenticate(params[:password])
       session[:email] = @user.email
-      redirect_to foods_url
+      if Account.find_by_id(@user.account_id).category == "Pantry"
+        redirect_to foods_url
+      else
+        redirect_to users_url
+      end
       flash[:notice] = "Sign-in success."
       session[:user_id] = @user.id
       session[:first_name] = @user.first_name
