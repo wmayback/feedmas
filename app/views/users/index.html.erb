@@ -1,31 +1,35 @@
 <h1>Network and Account Settings</h1>
 
 <% if session[:account_name].present? %>
-<h4> ::logged in as <%=session[:first_name]%> <%=session[:last_name]%> :: <%= session[:account_name]%> :: account number <%= Account.find_by_account_name(session[:account_name]).id%>:: type: <%= Account.find_by_account_name(session[:account_name]).category%>::</h4>
+<h6> ::Logged in as <h style=color:green><%=session[:first_name]%> <%=session[:last_name]%></h> :: <h style=color:brown><%= session[:account_name]%> </h>
+  <h style=color:blue>:: Account Number <%= Account.find_by_account_name(session[:account_name]).id%> :: </h></h6>
 <%end%>
 
 <table>
   <thead>
     <tr>
-        <% if session[:account_name].present? %>
-
-        <th><%= form_tag("/sessions", method: 'delete') do %>
-        <div>
-        <%= submit_tag "Log out" %>
-        </div>
-        <%end%></th>
+      <% if session[:account_name].present? %>
 
         <th><%= form_tag(foods_path, method: 'get') do %>
         <div>
-        <%= submit_tag "FeedsMore Map" %>
+        <%= submit_tag "FeedsMore Map", :class => "btn" %>
         </div>
         <%end%></th>
 
         <th><%= form_tag("foods/new", method: 'get') do %>
         <div>
-        <%= submit_tag "Add New Food" %>
+        <%= submit_tag "Add New Food", :class => "btn" %>
         </div>
         <%end%></th>
+
+
+
+        <th><%= form_tag("/sessions", method: 'delete') do %>
+        <div>
+        <%= submit_tag "Log out", :class => "btn" %>
+        </div>
+        <%end%></th>
+
 
         <%else%>
 
@@ -49,7 +53,7 @@
 
 
 
-<h3> <%=session[:account_name]%> outstanding foods:</h3>
+<h3> <%=session[:account_name]%>'s outstanding food items:</h3>
 
 <table class="table table-bordered table-hover">
   <thead>
@@ -101,7 +105,7 @@
   </tbody>
 </table>
 
-<h3> <%=session[:account_name]%> authorized users:</h3>
+<h3> <%=session[:account_name]%>'s authorized users:</h3>
 <p><%= link_to 'Add a New User', new_user_url %></p>
 
 <table class="table table-bordered table-hover">
@@ -144,7 +148,7 @@
 
 
 
-<h4>users in our feedsMore network:</h4>
+<h4>FeedsMore Network directory of users:</h4>
 
 <table  class="table table-bordered table-hover">
   <thead>
