@@ -47,59 +47,107 @@
  </thead>
 </table>
 
+<% if Account.find_by_account_name(session[:account_name]).category == "Restaurant" %>
 
+  <h3> <%=session[:account_name]%> outstanding foods:</h3>
 
-<h3> <%=session[:account_name]%> outstanding foods:</h3>
-
-<table class="table table-bordered table-hover">
-  <thead>
-    <tr>
-      <th>status</th>
-      <th>description</th>
-      <th>claimed</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>status</th>
+          <th>description</th>
+          <th>claimed</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
 
     <% @foods.each do |food|
     if  Food.find_by_user_id(food.user_id).user_id == session[:account_name]%>
 
-  <tbody>
+        <tbody>
 
-    <tr>
-      <td><%= food.status %></td>
-      <td><%= food.description %></td>
-      <td><% if food.claimant.present? %>
-          <%="yes"%>
-          <%else%>
-          <%="no"%>
-          <%end%>
-      </td>
-      <% if food.claimant.present? %>
-      <td> by: <%= User.find_by_email(food.try(:claimant)).try(:first_name) %> <%= User.find_by_email(food.try(:claimant)).try(:last_name) %></td>
-      <td> <%= Account.find_by_id(User.find_by_email(food.try(:claimant)).try(:account_id)).try(:account_name) %></td>
-      <td> <%= User.find_by_email(food.try(:claimant)).try(:phone) %></td>
+          <tr>
+            <td><%= food.status %></td>
+            <td><%= food.description %></td>
+            <td><% if food.claimant.present? %>
+                <%="yes"%>
+                <%else%>
+                <%="no"%>
+                <%end%>
+            </td>
+            <% if food.claimant.present? %>
+            <td> <%= User.find_by_email(food.try(:claimant)).try(:first_name) %> <%= User.find_by_email(food.try(:claimant)).try(:last_name) %></td>
+            <td> <%= Account.find_by_id(User.find_by_email(food.try(:claimant)).try(:account_id)).try(:account_name) %></td>
+            <td> <%= User.find_by_email(food.try(:claimant)).try(:phone) %></td>
 
-      <td><%= link_to 'Show', food_url(food) %></td>
-      <td><%= link_to 'Edit', edit_food_url(food) %></td>
-      <td><%= link_to 'Destroy', food_url(food), method: 'delete', data: { confirm: "Do you really want to delete this item?" } %></td>
-      <%else%>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+            <td><%= link_to 'Show', food_url(food) %></td>
+            <td><%= link_to 'Edit', edit_food_url(food) %></td>
+            <td><%= link_to 'Destroy', food_url(food), method: 'delete', data: { confirm: "Do you really want to delete this item?" } %></td>
+            <%else%>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
 
-      <%end%>
-    </tr>
-  <% end %>
-  <% end %>
-  </tbody>
-</table>
+            <%end%>
+          </tr>
+        <% end %>
+        <% end %>
+        </tbody>
+      </table>
+
+<%else%>
+
+<h3> <%=session[:account_name]%> food index:</h3>
+
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>status</th>
+          <th>description</th>
+          <th>donor</th>
+          <th>phone</th>
+          <th>claim</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+    <% @foods.each do |food| %>
+        <tbody>
+          <tr>
+            <td><%= food.status %></td>
+            <td><%= food.description %></td>
+            <td><%= food.user_id %></td>
+            <td><%= User.find_by_email(food.user_id).try(:phone) %></td>
+            <td><% if food.claimant.present? %> <%="yes"%> </td>
+            <td> <%= User.find_by_email(food.try(:claimant)).try(:first_name) %> <%= User.find_by_email(food.try(:claimant)).try(:last_name) %></td>
+            <td> <%= Account.find_by_id(User.find_by_email(food.try(:claimant)).try(:account_id)).try(:account_name) %></td>
+            <td> <%= User.find_by_email(food.try(:claimant)).try(:phone) %></td>
+
+            <td><%= link_to 'Show', food_url(food) %></td>
+            <td><%= link_to 'Edit', edit_food_url(food) %></td>
+            <td><%= link_to 'Destroy', food_url(food), method: 'delete', data: { confirm: "Do you really want to delete this item?" } %></td>
+                <%else%> <%="no"%>
+                <%end%>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        <% end %>
+
+        </tbody>
+      </table>
+
+<%end%>
 
 <h3> <%=session[:account_name]%> authorized users:</h3>
 <p><%= link_to 'Add a New User', new_user_url %></p>
