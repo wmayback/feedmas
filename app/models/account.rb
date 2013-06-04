@@ -17,6 +17,10 @@ class Account < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
+  def self.has_food
+    joins(:foods)
+  end
+
   def gmaps4rails_address
     "#{address_line1}, #{city}, #{state}, #{postcode}"
   end

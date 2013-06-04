@@ -41,15 +41,14 @@ users_hashes.each do |user|
 end
 puts "There are now #{User.count} rows in the Users table."
 
-foods_hashes = [{:status => "9:00 PM", :user_id => Account.last.account_name, :description => "Banana Bread"}, {:status => "6:45 PM", :user_id => Account.last.account_name, :description => "Ravioli"}, {:status => "11:00 PM", :user_id => Account.last.account_name, :description => "Tortilla Chips"}]
+foods_hashes = [{:status => "9:00 PM", :account_id => Account.last.account_name, :description => "Banana Bread"}, {:status => "6:45 PM", :account_id => Account.last.account_name, :description => "Ravioli"}, {:status => "11:00 PM", :account_id => Account.last.account_name, :description => "Tortilla Chips"}]
 
 Food.destroy_all
 foods_hashes.each do |food|
     f = Food.new
     f.status = food[:status]
-    f.user_id = food[:user_id]
+    f.account_id = food[:account_id].to_i
     f.description = food[:description]
-    f.claimant = food[:claimant]
     f.save
 
 end
