@@ -45,7 +45,7 @@ class FoodsController < ApplicationController
     @food.status = params[:status]
     @food.user_id = params[:user_id]
     @food.description = params[:description]
-    @food.user_id = params[:user_id]
+    @food.account_id = params[:account_id]
     @food.claimant = params[:claimant]
 
 
