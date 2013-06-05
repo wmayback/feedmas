@@ -82,9 +82,8 @@
                 <%end%>
             </td>
             <% if food.claimant.present? %>
-            <td> <%= User.find_by_email(food.try(:claimant)).try(:first_name) %> <%= User.find_by_email(food.try(:claimant)).try(:last_name) %></td>
-            <td> <%= Account.find_by_id(User.find_by_email(food.try(:claimant)).try(:account_id)).try(:account_name) %></td>
-            <td> <%= User.find_by_email(food.try(:claimant)).try(:phone) %></td>
+            <td> <%= food.claimant %></td>
+            <td> <%= Account.find_by_account_name(food.claimant).phone %></td>
 
             <td><%= link_to 'Show', food_url(food) %></td>
             <td><%= link_to 'Edit', edit_food_url(food) %></td>
