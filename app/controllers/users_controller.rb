@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @foods = current_user.account.foods
+    @claimed_by_us = Food.where(:claimant => session[:account_name])
   end
 
   def show
