@@ -7,11 +7,9 @@
 
 <%= form_tag(foods_url, method: 'post') do %>
 
-
-
   <div>
-    <%= label_tag :status, "Pick-Up By"  %><br />
-    <%= text_field_tag :status, "", :size => "30", :placeholder => 'Pick-Up Time!! i.e., "8:00 PM"' %>
+    <%= select_tag(:status, options_for_select(["9:00am","10:00am","11:00am","12:00pm","1:00pm","2:00pm","3:00pm","4:00pm","5:00pm","6:00pm","7:00pm","8:00pm","9:00pm"]), :prompt => "Please select pick-up time") %>
+
   </div>
 
   <div>
