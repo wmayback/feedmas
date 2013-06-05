@@ -31,7 +31,7 @@ class FoodsController < ApplicationController
 
     @food = current_user.account.foods.create({status: params[:status], description: params[:description]})
     if @food
-      redirect_to foods_url
+      redirect_to users_url
     else
       render 'new'
     end
