@@ -68,8 +68,7 @@
     </tr>
   </thead>
 
-    <% @foods.each do |food|
-    if  Food.find_by_user_id(food.user_id).user_id == session[:account_name]%>
+    <% @foods.each do |food| %>
 
         <tbody>
 
@@ -101,7 +100,6 @@
             <%end%>
           </tr>
         <% end %>
-        <% end %>
         </tbody>
       </table>
 
@@ -127,8 +125,8 @@
           <tr>
             <td><%= food.status %></td>
             <td><%= food.description %></td>
-            <td><%= food.user_id %></td>
-            <td><%= User.find_by_email(food.user_id).try(:phone) %></td>
+            <td><%= food.account_id %></td>
+            <td><%= User.find_by_email(food.account_id).try(:phone) %></td>
             <td><% if food.claimant.present? %> <%="yes"%> </td>
             <td> <%= User.find_by_email(food.try(:claimant)).try(:first_name) %> <%= User.find_by_email(food.try(:claimant)).try(:last_name) %></td>
             <td> <%= Account.find_by_id(User.find_by_email(food.try(:claimant)).try(:account_id)).try(:account_name) %></td>

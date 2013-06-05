@@ -10,7 +10,7 @@
 
 <p>
   <b>Donor:</b>
-  <%= @food.user_id %>
+  <%= @food.account_id %>
 </p>
 
 <p>
@@ -23,7 +23,7 @@
   <%= @food.claimant %>
 </p>
 
-<%= link_to 'Claims', claim_url, class: 'btn-claim', method: 'create', data: { confirms: "Do you really want to claim this?"} %> <br>
+<%= link_to 'Claim item', claim_url, class: 'btn-primary btn-large', method: 'create', data: { confirms: "Do you really want to claim this?"} %> <br>
 
 <div class="GHLLCJDVB GHLLCJOL"></div>
 </div>

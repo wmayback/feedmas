@@ -7,9 +7,7 @@
 
 <%= form_tag(foods_url, method: 'post') do %>
 
-  <div>
-    <%= hidden_field_tag :user_id, session[:account_name] %>
-  </div>
+
 
   <div>
     <%= label_tag :status, "Pick-Up By"  %><br />
