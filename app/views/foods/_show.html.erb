@@ -10,7 +10,7 @@
 
 <p>
   <b>Donor:</b>
-  <%= @food.account_id %>
+  <%= Account.find_by_id(@food.account_id).account_name %>
 </p>
 
 <p>
