@@ -17,6 +17,12 @@ class Account < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
+  before_create :titleize_account_name
+
+  def titleize_account_name
+    self.account_name = self.account_name.titleize
+  end
+
   def self.has_food
     joins(:foods)
   end
