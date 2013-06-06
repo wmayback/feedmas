@@ -84,19 +84,15 @@
             <% if food.claimant.present? %>
             <td> <%= food.claimant %></td>
             <td> <%= Account.find_by_account_name(food.claimant).phone %></td>
-
-            <td><%= link_to 'Show', food_url(food) %></td>
-            <td><%= link_to 'Edit', edit_food_url(food) %></td>
-            <td><%= link_to 'Destroy', food_url(food), method: 'delete', data: { confirm: "Do you really want to delete this item?" } %></td>
             <%else%>
             <td></td>
             <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-
             <%end%>
+            <td><%= link_to 'Show', food_url(food) %></td>
+            <td><%= link_to 'Edit', edit_food_url(food) %></td>
+            <td><%= link_to 'Destroy', food_url(food), method: 'delete', data: { confirm: "Do you really want to delete this item?" } %></td>
+
+
           </tr>
         <% end %>
         </tbody>
