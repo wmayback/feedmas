@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to foods_url
+    redirect_to :root
 
   end
 end
