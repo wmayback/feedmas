@@ -25,11 +25,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user
+    @user = User.find_by_id(params[:id])
   end
 
   def new
-    @user
+    @user = User.new
   end
 
   def create
