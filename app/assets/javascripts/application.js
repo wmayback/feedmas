@@ -12,102 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require libs/jquery.pjax
 //= require_tree .
 
 jQuery(document).ready(function () {
-
-
-
-  // $('#proftab a').click(function (e) {
-  //     $('ul.nav-tabs li.active').removeClass('active')
-  //     $(this).parent('li').addClass('active')
-  // });
-
-  // $('#wall').imagesLoaded(function() {
-
-    var $container = $('#wall');
-      $select = $('#filters select');
-
-    // initialize Isotope
-    $container.isotope({
-    // options...
-    resizable: false, // disable normal resizing
-    // set columnWidth to a percentage of container width
-      masonry: { columnWidth: $container.width() / 12 }
-    });
-
-    // update columnWidth on window resize
-    $(window).smartresize(function(){
-
-      $container.isotope({
-      // update columnWidth to a percentage of container width
-        masonry: { columnWidth: $container.width() / 12 }
-      });
-    });
-
-
-    $container.isotope({
-      itemSelector : '.card',
-      sortBy : 'original-order'
-    });
-
-    $select.change(function() {
-
-      var filters = $(this).val();
-
-        $container.isotope({
-          filter: filters
-        });
-
-      });
-
-      var $optionSets = $('#filters .option-set'),
-        $optionLinks = $optionSets.find('a');
-
-        $optionLinks.click(function(){
-
-        var $this = $(this);
-        // don't proceed if already selected
-        if ( $this.hasClass('selected') ) {
-            return false;
-        }
-      var $optionSet = $this.parents('.option-set');
-      $optionSet.find('.selected').removeClass('selected');
-      $this.addClass('selected');
-
-      // make option object dynamically, i.e. { filter: '.my-filter-class' }
-      var options = {},
-        key = $optionSet.attr('data-option-key'),
-        value = $this.attr('data-option-value');
-      // parse 'false' as false boolean
-      value = value === 'false' ? false : value;
-      options[ key ] = value;
-      if ( key === 'layoutMode' && typeof changeLayoutMode === 'function' ) {
-        // changes in layout modes need extra logic
-        changeLayoutMode( $this, options )
-      } else {
-        // otherwise, apply new options
-        $container.isotope( options );
-      }
-
-      return false;
-
-      });
-
-  });
-
-});
-
-
-$(function() {
-  $(document.body).on('appear', '.card', function(e, $affected) {
-    // add class called “appeared” for each appeared element
-    $(this).addClass("appeared");
-  });
-  $('.card').appear({force_process: true});
-});
-
 
 
 // Some general UI pack related JS
@@ -117,15 +24,6 @@ String.prototype.repeat = function(num) {
 };
 
 (function($) {
-
-  // Add segments to a slider
-  $.fn.addSliderSegments = function (amount) {
-    return this.each(function () {
-      var segmentGap = 100 / (amount - 1) + "%"
-        , segment = "<div class='ui-slider-segment' style='margin-left: " + segmentGap + ";'></div>";
-      $(this).prepend(segment.repeat(amount - 2));
-    });
-  };
 
   $(function() {
 
@@ -141,43 +39,6 @@ String.prototype.repeat = function(num) {
 
     // Tags Input
     $(".tagsinput").tagsInput();
-
-    // jQuery UI Sliders
-    var $slider = $("#slider");
-    $slider.slider({
-      min: 1,
-      max: 5,
-      value: 3,
-      orientation: "horizontal",
-      range: "min"
-    }).addSliderSegments($slider.slider("option").max);
-
-    var $slider2 = $("#slider2");
-    $slider2.slider({
-      min: 1,
-      max: 5,
-      values: [3, 4],
-      orientation: "horizontal",
-      range: true
-    }).addSliderSegments($slider2.slider("option").max);
-
-    var $slider3 = $("#slider3")
-      , slider3ValueMultiplier = 100
-      , slider3Options;
-    $slider3.slider({
-      min: 1,
-      max: 5,
-      values: [3, 4],
-      orientation: "horizontal",
-      range: true,
-      slide: function(event, ui) {
-        $slider3.find(".ui-slider-value:first").text("$" + ui.values[0] * slider3ValueMultiplier).end()
-                .find(".ui-slider-value:last").text("$" + ui.values[1] * slider3ValueMultiplier);
-      }
-    });
-    slider3Options = $slider3.slider("option");
-    $slider3.addSliderSegments(slider3Options.max).find(".ui-slider-value:first").text("$" + slider3Options.values[0] * slider3ValueMultiplier).end()
-            .find(".ui-slider-value:last").text("$" + slider3Options.values[1] * slider3ValueMultiplier);
 
     // Add style class name to a tooltips
     $(".tooltip").addClass(function() {
