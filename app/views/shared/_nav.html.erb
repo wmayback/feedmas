@@ -8,7 +8,7 @@
               <li><%= link_to 'Add Food', "foods/new" %></li>
           </ul>
           <ul class="profileBar">
-            <li class="user visible-desktop"><% if session[:account_name].present?%> <%= image_tag Account.find_by_account_name(session[:account_name]).image.url  :width => 200 %>  %></li> <% end %>
+            <li class="user visible-desktop"><% if session[:account_name].present?%> <%= image_tag current_user.account.image.url  :width => 200 %>  %></li> <% end %>
               <li class="profile">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <%=session[:account_name]%><span class="caret"></span></a>
 
