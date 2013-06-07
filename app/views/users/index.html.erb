@@ -1,218 +1,31 @@
-<h1>Network and Account Settings</h1>
+<%= render 'shared/mainnav' %>
 
-<% if session[:account_name].present? %>
-<h6> ::Logged in as <h style=color:green><%=session[:first_name]%> <%=session[:last_name]%></h> :: <h style=color:brown><%= session[:account_name]%> </h>
-  <h style=color:blue>:: Account Number <%= Account.find_by_account_name(session[:account_name]).id%> :: </h></h6>
-<%end%>
 
-<table>
-  <thead>
-    <tr>
-      <% if session[:account_name].present? %>
+<div class="content">
+  <div class="sidebar-nav span2">
+    <div class="sidebar-heading">
+      <a href="#" class="btn btn-primary new-button">New User</a>
+    </div>
+    <div class="tabbable tabs-left">
+      <ul class="nav nav-tabs">
+          <li class="active"><a href="#tab1" data-toggle="tab">Users</a></li>
+          <li><a href="#tab2" data-toggle="tab">Outstanding</a></li>
+          <li><a href="#tab3" data-toggle="tab">Network</a></li>
+      </ul>
+    </div>
+  </div>
 
-        <th><%= form_tag(foods_path, method: 'get') do %>
-        <div>
-        <%= submit_tag "FeedsMore Map", :class => "btn" %>
+    <div class="tab-content">
+        <div id="tab1" class="tab-pane active">
+            <%= render 'users' %>
         </div>
-        <%end%></th>
-
-        <th><%= form_tag("foods/new", method: 'get') do %>
-        <div>
-        <%= submit_tag "Add New Food", :class => "btn" %>
+        <div id="tab2" class="tab-pane">
+          <%= render 'outstanding' %>
         </div>
-        <%end%></th>
-
-
-
-        <th><%= form_tag("/sessions", method: 'delete') do %>
-        <div>
-        <%= submit_tag "Log out", :class => "btn" %>
+        <div id="tab3" class="tab-pane">
+          <%= render 'network' %>
         </div>
-        <%end%></th>
-
-
-        <%else%>
-
-        <th><%= form_tag("/sessions/new", method: 'get') do %>
-        <div>
-        <%= submit_tag "Log in" %>
-        </div>
-        <%end%>
-        </th>
-
-        <th><%= form_tag(new_account_url, method: 'get') do %>
-        <div>
-        <%= submit_tag "Register as a New User" %>
-        </div>
-        <%end%></th>
-
-        <%end%>
-    </tr>
- </thead>
-</table>
-
-<% if Account.find_by_account_name(session[:account_name]).category == "Restaurant" %>
-
-<h3> <%=session[:account_name]%>'s outstanding food items:</h3>
-
-<table class="table table-bordered table-hover">
-  <thead>
-    <tr>
-      <th>status</th>
-      <th>description</th>
-      <th>claimed</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-    <% @foods.each do |food| %>
-
-        <tbody>
-
-          <tr>
-            <td><%= food.status %></td>
-            <td><%= food.description %></td>
-            <td><% if food.claimant.present? %>
-                <%="yes"%>
-                <%else%>
-                <%="no"%>
-                <%end%>
-            </td>
-            <% if food.claimant.present? %>
-            <td> <%= food.claimant %></td>
-            <td> <%= Account.find_by_account_name(food.claimant).phone %></td>
-
-            <td><%= link_to 'Show', food_url(food) %></td>
-            <td><%= link_to 'Edit', edit_food_url(food) %></td>
-            <td><%= link_to 'Destroy', food_url(food), method: 'delete', data: { confirm: "Do you really want to delete this item?" } %></td>
-            <%else%>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-
-            <%end%>
-          </tr>
-        <% end %>
-        </tbody>
-      </table>
-
-<%else%>
-
-<h3> <%=session[:account_name]%> Current Claims:</h3>
-
-    <table class="table table-bordered table-hover">
-      <thead>
-        <tr>
-          <th>Pick Up By:</th>
-          <th>description</th>
-          <th>donor</th>
-          <th>phone</th>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-
-    <% @claimed_by_us.each do |food| %>
-        <tbody>
-          <tr>
-            <td><%= food.status %></td>
-            <td><%= food.description %></td>
-            <td><%= Account.find_by_id(food.account_id).account_name %></td>
-            <td><%= Account.find_by_id(food.account_id).phone %></td>
-
-            <td><%= link_to 'Show', food_url(food) %></td>
-            <td><%= link_to 'Edit', edit_food_url(food) %></td>
-            <td><%= link_to 'Destroy', food_url(food), method: 'delete', data: { confirm: "Do you really want to delete this item?" } %></td>
-
-          </tr>
-        <% end %>
-
-        </tbody>
-      </table>
-
-<%end%>
-
-<h3> <%=session[:account_name]%>'s authorized users:</h3>
-<p><%= link_to 'Add a New User', new_user_url %></p>
-
-<table class="table table-bordered table-hover">
-  <thead>
-    <tr>
-      <th>email</th>
-      <th>first name</th>
-      <th>last name</th>
-      <th>account</th>
-      <th>phone</th>
-      <th>mobile phone</th>
-      <th>fax</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-  <% @users.each do |user|
-    if  Account.find_by_id(user.account_id).account_name == session[:account_name]%>
-    <tr>
-      <td><%= user.email %></td>
-      <td><%= user.first_name %></td>
-      <td><%= user.last_name %></td>
-      <td><%= Account.find_by_id(user.account_id).account_name %></td>
-      <td><%= user.phone %></td>
-      <td><%= user.mphone %></td>
-      <td><%= user.fax %></td>
-
-      <td><%= link_to 'Show', user_url(user) %></td>
-      <td><%= link_to 'Edit', edit_user_url(user) %></td>
-      <td><%= link_to 'Destroy', user_url(user), method: 'delete', data: { confirm: "Do you really want to delete this user?" } %></td>
-
-    </tr>
-  <% end %>
-  <% end %>
-  </tbody>
-</table>
-
-
-
-<h4>FeedsMore Network directory of users:</h4>
-
-<table  class="table table-bordered table-hover">
-  <thead>
-    <tr>
-      <th>email</th>
-      <th>first name</th>
-      <th>last name</th>
-      <th>account</th>
-      <th>phone</th>
-      <th>mobile phone</th>
-      <th>fax</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-  <% @users.each do |user|
-      if  Account.find_by_id(user.account_id).account_name != session[:account_name]%>
-    <tr>
-      <td><%= user.email %></td>
-      <td><%= user.first_name %></td>
-      <td><%= user.last_name %></td>
-      <td><%= Account.find_by_id(user.account_id).account_name %></td>
-      <td><%= user.phone %></td>
-      <td><%= user.mphone %></td>
-      <td><%= user.fax %></td>
-      <td><%= link_to 'Show', user_url(user), class: 'btn' %></td>
-    </tr>
-     <% end %>
-  <% end %>
-  </tbody>
-</table>
+    </div>
+  </div>
+</div>
 

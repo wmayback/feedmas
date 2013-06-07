@@ -1,0 +1,87 @@
+<% if Account.find_by_account_name(session[:account_name]).category == "Restaurant" %>
+
+<h3> <%=session[:account_name]%>'s outstanding food items:</h3>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>status</th>
+      <th>description</th>
+      <th>claimed</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+    <% @foods.each do |food| %>
+
+        <tbody>
+
+          <tr>
+            <td><%= food.status %></td>
+            <td><%= food.description %></td>
+            <td><% if food.claimant.present? %>
+                <%="yes"%>
+                <%else%>
+                <%="no"%>
+                <%end%>
+            </td>
+            <% if food.claimant.present? %>
+            <td> <%= food.claimant %></td>
+            <td> <%= Account.find_by_account_name(food.claimant).phone %></td>
+
+            <td><%= link_to 'Show', food_url(food) %></td>
+            <td><%= link_to 'Edit', edit_food_url(food) %></td>
+            <td><%= link_to 'Destroy', food_url(food), method: 'delete', data: { confirm: "Do you really want to delete this item?" } %></td>
+            <%else%>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+            <%end%>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+<%else%>
+
+<h3> <%=session[:account_name]%> Current Claims:</h3>
+
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Pick Up By:</th>
+          <th>description</th>
+          <th>donor</th>
+          <th>phone</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+    <% @claimed_by_us.each do |food| %>
+        <tbody>
+          <tr>
+            <td><%= food.status %></td>
+            <td><%= food.description %></td>
+            <td><%= Account.find_by_id(food.account_id).account_name %></td>
+            <td><%= Account.find_by_id(food.account_id).phone %></td>
+
+            <td><%= link_to 'Show', food_url(food) %></td>
+            <td><%= link_to 'Edit', edit_food_url(food) %></td>
+            <td><%= link_to 'Destroy', food_url(food), method: 'delete', data: { confirm: "Do you really want to delete this item?" } %></td>
+
+          </tr>
+        <% end %>
+
+        </tbody>
+      </table>
+
+<%end%>

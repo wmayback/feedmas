@@ -1,0 +1,34 @@
+<h4>FeedsMore Network directory of users:</h4>
+
+<table  class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>email</th>
+      <th>first name</th>
+      <th>last name</th>
+      <th>account</th>
+      <th>phone</th>
+      <th>mobile phone</th>
+      <th>fax</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @users.each do |user|
+      if  Account.find_by_id(user.account_id).account_name != session[:account_name]%>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+      <td><%= Account.find_by_id(user.account_id).account_name %></td>
+      <td><%= user.phone %></td>
+      <td><%= user.mphone %></td>
+      <td><%= user.fax %></td>
+      <td><%= link_to 'Show', user_url(user), class: 'btn' %></td>
+    </tr>
+     <% end %>
+  <% end %>
+  </tbody>
+</table>
+

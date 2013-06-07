@@ -14,6 +14,24 @@
 //= require jquery_ujs
 //= require_tree .
 
+
+$(document).ready(function() {
+
+//The following set of code checks to see if any tab is already active (this occurs if a parameter to tab would be passed)
+//If no tab is active, make the first tab and tab-pane active
+var elementAlreadyActive = false;
+$('.nav-tabs li').each(function(index, li) {
+    var element = $(li);
+     if (element.attr("class") == "active"){
+          elementAlreadyActive = true;
+     }
+
+});
+if (!elementAlreadyActive){
+    $('.nav-tabs li:first').addClass('active');
+    $('.tab-content div:first').addClass('active');
+} });
+
 jQuery(document).ready(function () {
 
 
@@ -39,6 +57,7 @@ String.prototype.repeat = function(num) {
 
     // Tags Input
     $(".tagsinput").tagsInput();
+
 
     // Add style class name to a tooltips
     $(".tooltip").addClass(function() {

@@ -18,6 +18,7 @@
  @import url("http://fonts.googleapis.com/css?family=Lato:400,700,700italic,900,400italic,300");
 
  body {
+  background-color: #f5f5f5;
     font-family: 'Lato',sans-serif;
     font-style: normal;
     margin: 0;
@@ -203,7 +204,81 @@
      top: -6px;
  }
 
-
+ .content {
+   overflow: hidden;
+   background-color: #ffffff;
+   border-bottom: 1px solid #e5e5e5;
+   margin: 20px 0 50px 0;
+   padding: 0 25px;
+   position: relative;
+ }
+ a.new-button {
+  width: 150px;
+  margin: 30px auto;
+  padding: 15px;
+}
+ /* Main stats up of screen */
+ #main-nav {
+   background-color: #ffffff;
+   border-bottom: 1px solid #e5e5e5;
+   margin-top: 30px;
+ }
+ #main-nav .first {
+   margin-left: 30px;
+ }
+ #main-nav .stat {
+   text-align: left;
+   padding: 20px 0px 20px 0px;
+   border-right: 1px solid #e8e9ee;
+ /*  position: relative;*/
+   box-shadow: 1px 0px 0px 0px white;
+ }
+ .stat:hover {
+ /*  border-bottom: 3px solid #32a0ee;
+   color: #fff;
+   background-color: #e98455;*/
+ }
+ #main-nav .stat.last {
+   border-right: 0px;
+ }
+ #main-nav .stat .data {
+   color: #32a0ee;
+   text-transform: uppercase;
+   font-weight: 600;
+   font-size: 16px;
+   padding-right: 50px;
+ }
+ #main-nav .stat .data .number {
+   color: #e98455;
+   font-size: 15px;
+   margin-right: 15px;
+ }
+ #main-nav .stat .date {
+   color: #32a0ee;
+   text-align: left;
+   font-family: 'Lato', 'Open Sans';
+   font-style: italic;
+   font-size: 15px;
+   padding-left: 15px;
+ }
+ .sidebar-heading {
+    margin-bottom: 20px;
+ }
+ .profile-avatar {
+   width: 150px;
+   border-radius: 100px;
+ }
+ .sidebar-nav {
+    background-color: #FFF;
+    border-right: 1px solid #ddd;
+    display: block;
+    width: 200px;
+    float: left;
+    margin: 0em;
+    margin-bottom: -5000px;
+    padding-bottom: 5000px;
+ /*   bottom: 0;*/
+ }
 
  .btn {
    border: none;

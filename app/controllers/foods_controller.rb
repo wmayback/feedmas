@@ -1,13 +1,13 @@
 class FoodsController < ApplicationController
   before_filter :define_food, :except => [:index, :new, :create]
- layout false
+  layout false
   def define_food
     @food = Food.find_by_id(params[:id])
   end
 
   def index
     @foods = Food.all
-    @json = Account.has_food.to_gmaps4rails
+    @json = Account.all.to_gmaps4rails
     render layout: "main_page.html.erb"
   end
 
