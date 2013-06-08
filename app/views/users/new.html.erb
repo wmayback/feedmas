@@ -1,3 +1,4 @@
+<div class="content">
 <% if session[:account_name].present? %>
 <h2>Add a user for <%=session[:account_name] %></h2>
 <% else %>
@@ -84,3 +85,4 @@
     <%= submit_tag "Create User" %>
   </div>
 <% end %>
+</div>

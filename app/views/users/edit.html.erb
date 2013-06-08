@@ -1,3 +1,4 @@
+<div class="content">
 <h1>Editing User #<%= @user.id %></h1>
 
 <h4> logged in as <%=session[:first_name]%> <%=session[:last_name]%> :: <%= session[:account_name]%>  </h4>
@@ -41,7 +42,8 @@
 
 
   <div>
-    <%= submit_tag "Update User" %>
+    <%= submit_tag "Update User", class: 'btn btn-primary' %>
   </div>
 
 <% end %>
+</div>
