@@ -190,6 +190,15 @@
      position: absolute;
      top: -7px;
  }
+ .stat .nav_search:before {
+ content: attr(data-icon);
+ font-size: 30px;
+ vertical-align: middle;
+ text-transform: none;
+ font-style: normal;
+ float: right;
+ margin-right: 40px;
+ }
 
  .profileBar > li > .dropdown-menu::after {
      left: auto;
