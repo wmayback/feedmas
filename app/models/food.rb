@@ -6,6 +6,6 @@ class Food < ActiveRecord::Base
   validates :status, :presence => true
 
 
-  has_many :accounts
+  belongs_to :account
 
 end

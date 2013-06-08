@@ -27,11 +27,10 @@ class AccountsController < ApplicationController
     @account.image = params[:image]
 
 
-
-
     if @account.save
-      redirect_to new_user_url
       cookies[:new_account] = "true"
+      # session[:account_id] = @account.id
+      redirect_to new_user_url
     else
       render 'new'
     end

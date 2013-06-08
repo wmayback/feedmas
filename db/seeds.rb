@@ -1,7 +1,9 @@
 account_hashes = [
-{ :account_name => "Olive Branch Mission", :category => "Pantry", :phone => "847-807-9616",:address_line1 => "6310 S Claremont Ave",:address_line2 => "Unit 1", :city => "Chicago", :state => "IL", :postcode => "60605", :image => File.open("#{Rails.root}/db/seeds_data/olivebranch.jpg") },
-{ :account_name => "A Just Harvest", :category => "Pantry", :phone => "847-807-9617", :address_line1 => "7649 North Paulina", :address_line2 => "Unit 3", :city => "Chicago", :state => "IL", :postcode => "60606", :image => File.open("#{Rails.root}/db/seeds_data/olivebranch.jpg") },
-{ :account_name => "Panera Bread", :category => "Restaurant", :phone => "847-807-9619", :address_line1 => "250 S. Wacker Dr.", :adress_line2 => "Unit 2", :city => "Chicago", :state => "IL", :postcode => "60603", :image => File.open("#{Rails.root}/db/seeds_data/olivebranch.jpg") }
+{ :account_name => "Banera Preads", :category => "Restaurant", :phone => "630-807-9619", :address_line1 => "501 S State St", :adress_line2 => "", :city => "Chicago", :state => "IL", :postcode => "60605", :image => File.open("#{Rails.root}/db/seeds_data/panera.jpg") },
+
+{ :account_name => "Lakeview Pantry", :category => "Pantry", :phone => "847-807-9616",:address_line1 => "3831 N Broadway St",:address_line2 => "", :city => "Chicago", :state => "IL", :postcode => "60613", :image => File.open("#{Rails.root}/db/seeds_data/lakeviewpantry.jpg") },
+{ :account_name => "Common Pantry", :category => "Pantry", :phone => "847-807-9617", :address_line1 => "3744 N Damen Ave", :address_line2 => "", :city => "Chicago", :state => "IL", :postcode => "60618", :image => File.open("#{Rails.root}/db/seeds_data/commonpantry.jpg") },
+{ :account_name => "Feinstein Sisters Bagels", :category => "Restaurant", :phone => "847-807-9619", :address_line1 => "30 N LaSalle St", :adress_line2 => "100E", :city => "Chicago", :state => "IL", :postcode => "60602", :image => File.open("#{Rails.root}/db/seeds_data/einsteinbros.jpg") }
 ]
 
 Account.destroy_all
@@ -41,7 +43,7 @@ users_hashes.each do |user|
 end
 puts "There are now #{User.count} rows in the Users table."
 
-foods_hashes = [{:status => "9:00 PM", :account_id => Account.last.id, :description => "Banana Bread"}, {:status => "6:45 PM", :account_id => Account.last.id, :description => "Ravioli"}, {:status => "11:00 PM", :account_id => Account.last.id, :description => "Tortilla Chips"}]
+foods_hashes = [{:status => "9:00 PM", :account_id => Account.last.id, :description => "Banana Bread"}, {:status => "6:45 PM", :account_id => Account.last.id, :description => "Ravioli"}, {:status => "11:00 PM", :account_id => Account.first.id, :description => "Tortilla Chips"}]
 
 Food.destroy_all
 foods_hashes.each do |food|
