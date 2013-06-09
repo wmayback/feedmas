@@ -33,7 +33,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new
+    @user = current_user.account.users.create({email: params[:email], first_name: params[:first_name], admin: params[:admin], last_name: params[:last_name], account_id: params[:account_id], phone: params[:phone], mphone: params[:mphone], fax: params[:fax], password: params[:password], password_confirmation: params[:password_confirmation]})
+
 
     # = session[:first_name]
     # = session[:last_name]
