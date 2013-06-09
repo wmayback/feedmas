@@ -3,7 +3,7 @@
       <div class="container">
         <div class="main-nav">
           <ul class="nav">
-            <% if session[:account_name].present? %>
+            <% if current_user.present? %>
               <li><%= link_to 'Foods', foods_path %></li>
               <li><%= link_to 'Add Food', "foods/new", data: { toggle: "modal", target: "#ajax-modal" } %></li>
           </ul>

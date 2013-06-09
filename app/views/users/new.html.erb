@@ -1,5 +1,5 @@
 <div class="content">
-<% if session[:account_name].present? %>
+<% if current_user.present? %>
 <h2>Add a user for <%=session[:account_name] %></h2>
 <% else %>
 <h2>Register as a new User for an existing Account</h2>
