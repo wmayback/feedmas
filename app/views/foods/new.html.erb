@@ -1,23 +1,15 @@
-<h1>new food to F E E D the N E E D</h1>
-
-<% if session[:first_name].present? %>
-<h4> ::logged in as <%=session[:first_name]%> <%=session[:last_name]%> :: <%= session[:account_name]%> :: account number <%= Account.find_by_account_name(session[:account_name]).id%>:: type: <%= Account.find_by_account_name(session[:account_name]).category%>::</h4>
-<%end%>
-
-
 <%= form_tag(foods_url, method: 'post') do %>
 
   <div>
-    <%= select_tag(:status, options_for_select(["9:00am","10:00am","11:00am","12:00pm","1:00pm","2:00pm","3:00pm","4:00pm","5:00pm","6:00pm","7:00pm","8:00pm","9:00pm"]), :prompt => "Please select pick-up time") %>
+    <%= select_tag(:status, options_for_select(["9:00am","10:00am","11:00am","12:00pm","1:00pm","2:00pm","3:00pm","4:00pm","5:00pm","6:00pm","7:00pm","8:00pm","9:00pm"]), class: 'span7', :prompt => "Please select pick-up time") %>
 
   </div>
 
   <div>
     <%= label_tag :description %><br />
-    <%= text_area_tag :description, "", :size => "30x5", :placeholder => 'Please provide a brief description of items to be donated, i.e., "40 frozen bagels"' %>
+    <%= text_area_tag :description, "", rows: '5', class: 'span10', :placeholder => 'Please provide a brief description of items to be donated, i.e., "40 frozen bagels"' %>
   </div>
 
-  <div>
-    <%= submit_tag "Create Food" %>
-  </div>
+  <%= submit_tag "Create Food", class: 'btn btn-primary' %>
 <% end %>
+
