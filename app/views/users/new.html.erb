@@ -15,7 +15,7 @@
 
   <div>
     <% if session[:account_name].present? %>
-    <%= hidden_field_tag :account_id, Account.find_by_account_name(session[:account_name]) %>
+    <%= hidden_field_tag :account_id, Account.find_by_account_name(session[:account_name]).id %>
     <% end %>
   </div>
 
