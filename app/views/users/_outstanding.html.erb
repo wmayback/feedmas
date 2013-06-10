@@ -1,13 +1,13 @@
 <% if Account.find_by_account_name(session[:account_name]).category == "Restaurant" %>
 
-<h3> <%=session[:account_name]%>'s outstanding food items:</h3>
+<h3> <%=session[:account_name]%>'s Outstanding Food Items:</h3>
 
 <table class="table table-bordered table-hover">
   <thead>
     <tr>
-      <th>status</th>
-      <th>description</th>
-      <th>claimed</th>
+      <th>Pick-up By</th>
+      <th>Description</th>
+      <th>Claimed?</th>
       <th></th>
       <th></th>
       <th></th>

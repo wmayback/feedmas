@@ -9,22 +9,20 @@
     <div class="tabbable tabs-left">
       <ul class="nav nav-tabs">
           <li class="active"><a href="#tab1" data-toggle="tab">Outstanding Items</a></li>
-           <li><a href="#tab2" data-toggle="tab">Users</a></li>
-          <li><a href="#tab3" data-toggle="tab">Network</a></li>
+           <li><a href="#tab2" data-toggle="tab">User Network</a></li>
+
       </ul>
     </div>
   </div>
 
     <div class="tab-content">
         <div id="tab1" class="tab-pane active">
-            <%= render 'users' %>
+            <%= render 'outstanding' %>
         </div>
         <div id="tab2" class="tab-pane">
-          <%= render 'outstanding' %>
-        </div>
-        <div id="tab3" class="tab-pane">
           <%= render 'network' %>
         </div>
+
     </div>
   </div>
 </div>
