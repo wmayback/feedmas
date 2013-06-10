@@ -4,8 +4,8 @@
         <div class="main-nav">
           <ul class="nav">
             <% if session[:account_name].present? %>
-              <li><%= link_to 'Foods', foods_path %></li>
-              <li><%= link_to 'Add Food', "foods/new", data: { toggle: "modal", target: "#ajax-modal" } %></li>
+              <li><%= link_to 'Map', foods_path %></li>
+              <li><%= link_to 'Donate', "foods/new", data: { toggle: "modal", target: "#ajax-modal" } %></li>
           </ul>
           <ul class="profileBar">
             <li class="user visible-desktop"><% if current_user.present?%> <%= image_tag current_user.account.image.url  :width => 200 %>  %></li> <% end %>

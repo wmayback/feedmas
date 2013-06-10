@@ -3,28 +3,18 @@
         <div class="span2 stat first">
             <div class="data">
 
-                <span class="number" data-icon="E"><%#= link_to 'Blog', admin_posts_path %><span class="date">24</span></span>
+                <span class="number" data-icon="E"><%#= link_to 'Blog', admin_posts_path %>Account Number:<span class="date"> <%=current_user.account.id %></span></span>
                <!--  <span class="number" data-icon="E">Blog<span class="date">24</span> --></span>
             </div>
         </div>
         <div class="span2 stat">
             <div class="data">
-                <span class="number" data-icon="P">Users<span class="date">5</span></span>
+                <span class="number" data-icon="P">Current User:<span class="date"><%=current_user.first_name + " " + current_user.last_name%></span></span>
 
             </div>
 
         </div>
-        <div class="span2 stat">
-            <div class="data">
-                <span class="number"data-icon="m">Orders</span>
 
-            </div>
-     <!--        <span class="date">4 Active</span> -->
-        </div>
-        <div class="stat last">
-<!--             <input type="text" class="nav_seach_bar" data-icon="S"> -->
-            <i class="nav_search" data-icon="S"></i>
-        </div>
 
     </div>
 </div>
