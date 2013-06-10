@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
     #@user.account_id != session[:email]
 
-    if Account.find_by_id(@user.account_id).account_name != current_user
+    if Account.find_by_id(@user.account_id).account_name != session[:account_name]
       redirect_to users_url, notice: "Unauthorized User"
     end
   end
@@ -46,8 +46,8 @@ class UsersController < ApplicationController
     @user.password = params[:password]
     @user.password_confirmation = params[:password_confirmation]
 
-    if current_user.present? && @user.save
-      redirect_to users_url
+    if session[:first_name].present? && @user.save
+      redirect_to "/users"
     elsif @user.save
       redirect_to "/sessions/new"
     else
