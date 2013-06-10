@@ -15,7 +15,7 @@
 <% end %>
 
 <% if session[:first_name].present? %>
-<h4> ::logged in as <%=session[:first_name]%> <%=session[:last_name]%> :: <%= session[:account_name]%>::</h4>
+<h4> Logged in as <%=session[:first_name]%> | <%=session[:last_name]%><%= session[:account_name]%></h4>
 <%end%>
 
 
