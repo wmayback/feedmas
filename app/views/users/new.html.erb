@@ -1,3 +1,4 @@
+
 <div class="content">
 <% if session[:account_name].present? %>
 <h2>Add a new user</h2>
@@ -5,6 +6,13 @@
 <h2>Register as a new User for an existing Account</h2>
 <% end %>
 
+<% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <% if session[:first_name].present? %>
 <h4> ::logged in as <%=session[:first_name]%> <%=session[:last_name]%> :: <%= session[:account_name]%>::</h4>
