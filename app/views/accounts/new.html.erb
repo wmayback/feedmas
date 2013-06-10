@@ -1,5 +1,13 @@
 <h1>New Account</h1>
 
+<% if @account.errors.any? %>
+  <ul>
+    <% @account.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <p>If you've already registered an account with us, please <%= link_to 'add a new user', new_user_url %> or <%= link_to 'sign in.', new_session_url %></p>
 
 
