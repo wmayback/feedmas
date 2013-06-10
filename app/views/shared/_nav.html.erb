@@ -13,8 +13,8 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <%=session[:account_name]%><span class="caret"></span></a>
 
               <ul class="dropdown-menu">
-                <li><%= link_to "Foods", "/foods" %></li>
-                <li><%= link_to "Network & Settings", users_path %></li>
+                <li><%= link_to "Food", "/foods" %></li>
+                <li><%= link_to "Network", users_path %></li>
                 <li><%= link_to "Log Out", "/sessions", method: 'delete' %></li>
                    </a></li>
                   <% else %>
