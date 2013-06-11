@@ -1,7 +1,7 @@
 /* =============================================================
  * flatui-checkbox.js v0.0.1
  * ============================================================ */
- 
+
 !function ($) {
 
  /* CHECKBOX PUBLIC CLASS DEFINITION
@@ -11,46 +11,46 @@
     this.init(element, options);
   }
 
-  Checkbox.prototype.setState = function () {    
+  Checkbox.prototype.setState = function () {
     var d = 'disabled'
-      , ch = 'checked' 
+      , ch = 'checked'
       , $el = this.$element
       , $parent = $el.closest('.checkbox');
-      
-      $el['prop'](d) && $parent.addClass(d);   
+
+      $el['prop'](d) && $parent.addClass(d);
       $el['prop'](ch) && $parent.addClass(ch);
   }
-  
-  Checkbox.prototype.toggle = function () {    
+
+  Checkbox.prototype.toggle = function () {
     var d = 'disabled'
       , ch = 'checked'
       , $el = this.$element
       , $parent = $el.closest('.checkbox')
       , checked = $el['prop'](ch)
       , e = $.Event('toggle')
-    
-    !$el['prop'](d) && $parent.toggleClass(ch) && checked ? $el.removeAttr(ch) : $el.attr(ch, true);  
-    $el.trigger(e);   
+
+    !$el['prop'](d) && $parent.toggleClass(ch) && checked ? $el.removeAttr(ch) : $el.attr(ch, true);
+    $el.trigger(e);
   }
-  
-  Checkbox.prototype.setCheck = function (option) {    
+
+  Checkbox.prototype.setCheck = function (option) {
     var d = 'disabled'
       , ch = 'checked'
       , $el = this.$element
       , $parent = $el.closest('.checkbox')
       , checkAction = option == 'check' ? true : false
       , e = $.Event(option)
-    
-    !$el['prop'](d) && $parent[checkAction ? 'addClass' : 'removeClass' ](ch) && checkAction ? $el.attr(ch, true) : $el.removeAttr(ch);  
-    $el.trigger(e);   
+
+    !$el['prop'](d) && $parent[checkAction ? 'addClass' : 'removeClass' ](ch) && checkAction ? $el.attr(ch, true) : $el.removeAttr(ch);
+    $el.trigger(e);
   }
-  
-  Checkbox.prototype.init = function (element, options) {      
+
+  Checkbox.prototype.init = function (element, options) {
     var $el = this.$element = $(element)
-    
-    this.options = $.extend({}, $.fn.checkbox.defaults, options);      
-    $el.before(this.options.template);    
-    this.setState();      
+
+    this.options = $.extend({}, $.fn.checkbox.defaults, options);
+    $el.before(this.options.template);
+    this.setState();
     return this
   }
 
@@ -68,10 +68,10 @@
       if (!data) $this.data('checkbox', (data = new Checkbox(this, options)));
       if (option == 'toggle') data.toggle()
       if (option == 'check' || option == 'uncheck') data.setCheck(option)
-      else if (option) data.setState(); 
+      else if (option) data.setState();
     });
   }
-  
+
   $.fn.checkbox.defaults = {
     template: '<span class="icons"><span class="first-icon fui-checkbox-unchecked"></span><span class="second-icon fui-checkbox-checked"></span></span>'
   }

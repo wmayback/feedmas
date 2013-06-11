@@ -1,9 +1,3 @@
-// $('#close_panel').hide();
-// $('.side-panel').append('<%= j render("show") %>');
-
-
-
-
 var title       =   '.modal-title',
     loader      =   '.ajax-loader',
     content     =   '.modal-body-content',
@@ -12,7 +6,7 @@ var title       =   '.modal-title',
     modal       =   '#ajax-modal'
 
 //i set the title through a helper function
-$(title).html('Item Details');
+$(title).html('My Messages');
 //hides the modal and shows the ajax content
 $(loader).fadeToggle('fast', function() {
   $(content).hide().html('<%= j render("show") %>');
@@ -25,4 +19,3 @@ $(content).on('click', dataRemote, function(){
     $(loader).fadeIn('slow');
   });
 });
-
