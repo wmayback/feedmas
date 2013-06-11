@@ -29,7 +29,7 @@ class AccountsController < ApplicationController
 
     if @account.save
       cookies[:new_account] = "true"
-      # session[:account_id] = @account.id
+      session[:account_id] = @account.id
       redirect_to new_user_url
     else
       render 'new'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130604182413) do
+ActiveRecord::Schema.define(:version => 20130611234658) do
 
   create_table "accounts", :force => true do |t|
     t.string  "account_name"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20130604182413) do
     t.string  "email"
     t.string  "first_name"
     t.string  "last_name"
-    t.string  "account_id"
+    t.integer "account_id",      :limit => 255
     t.string  "phone"
     t.string  "mphone"
     t.string  "fax"
