@@ -19,6 +19,13 @@
 //= require_tree .
 
 
+// Some general UI pack related JS
+// Extend JS String with repeat method
+String.prototype.repeat = function(num) {
+    return new Array(num + 1).join(this);
+};
+
+
 $(document).ready(function() {
 
 //The following set of code checks to see if any tab is already active (this occurs if a parameter to tab would be passed)
@@ -36,18 +43,7 @@ if (!elementAlreadyActive){
     $('.tab-content div:first').addClass('active');
 } });
 
-jQuery(document).ready(function () {
-
-
-// Some general UI pack related JS
-// Extend JS String with repeat method
-String.prototype.repeat = function(num) {
-    return new Array(num + 1).join(this);
-};
-
-(function($) {
-
-  $(function() {
+$(document).ready(function() {
 
     // Custom Selects
     $("select[name='huge']").selectpicker({style: 'btn-huge btn-primary', menuStyle: 'dropdown-inverse'});
@@ -83,7 +79,7 @@ String.prototype.repeat = function(num) {
     });
 
     // Disable link clicks to prevent page scrolling
-    $('a[href="#fakelink""]').on('click', function (e) {
+    $('a[href="#fakelink""]').on('click', function(e) {
       e.preventDefault();
     });
 
@@ -103,17 +99,17 @@ String.prototype.repeat = function(num) {
     $('#spinner-01').customspinner({
       min: -99,
       max: 99
-    }).on('focus', function () {
+    }).on('focus', function() {
       $(this).closest('.ui-spinner').addClass('focus');
-    }).on('blur', function () {
+    }).on('blur', function() {
       $(this).closest('.ui-spinner').removeClass('focus');
     });
 
 
     // Focus state for append/prepend inputs
-    $('.input-prepend, .input-append').on('focus', 'input', function () {
+    $('.input-prepend, .input-append').on('focus', 'input', function() {
       $(this).closest('.control-group, form').addClass('focus');
-    }).on('blur', 'input', function () {
+    }).on('blur', 'input', function() {
       $(this).closest('.control-group, form').removeClass('focus');
     });
 
@@ -124,7 +120,7 @@ String.prototype.repeat = function(num) {
     });
 
     // Table: Add class row selected
-    $('.table tbody :checkbox').on('check uncheck toggle', function (e) {
+    $('.table tbody :checkbox').on('check uncheck toggle', function(e) {
       var $this = $(this)
         , check = $this.prop('checked')
         , toggle = e.type == 'toggle'
@@ -141,7 +137,7 @@ String.prototype.repeat = function(num) {
       selectOtherMonths: true,
       dateFormat: "d MM, yy",
       yearRange: '-1:+1'
-    }).prev('.btn').on('click', function (e) {
+    }).prev('.btn').on('click', function(e) {
       e && e.preventDefault();
       $('#datepicker-01').focus();
     });
@@ -158,5 +154,4 @@ String.prototype.repeat = function(num) {
 
     // Stackable tables
     $(".table-striped").stacktable({id: "rwd-table"});
-  });
-})(jQuery, document, window);
+});
