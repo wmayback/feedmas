@@ -1,6 +1,28 @@
 // $('#close_panel').hide();
 // $('.side-panel').append('<%= j render("show") %>');
-$(".side-panel ul").replaceWith('<%= j render("show") %>').hide().slideDown(300);
 
 
+
+
+var title       =   '.modal-title',
+    loader      =   '.ajax-loader',
+    content     =   '.modal-body-content',
+    dataRemote  =   'a[data-remote=true]';
+    toolbar     =   'div.modal-footer';
+    modal       =   '#ajax-modal'
+
+//i set the title through a helper function
+$(title).html('Item Details');
+//hides the modal and shows the ajax content
+$(loader).fadeToggle('fast', function() {
+  $(content).hide().html('<%= j render("show") %>');
+  $(modal).modal();
+});
+//brings the loader back up + gets rid of the content when linking to another controller method etc
+$(content).on('click', dataRemote, function(){
+  $(content).fadeOut('slow', function() {
+    $(content).empty();
+    $(loader).fadeIn('slow');
+  });
+});
 
