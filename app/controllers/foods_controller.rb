@@ -14,8 +14,8 @@ class FoodsController < ApplicationController
   def show
 
     respond_to do |format|
-      format.html { redirect_to foods_url }
-      format.js { render :layout => false }
+      format.html
+      format.js
     end
   end
 
@@ -23,8 +23,8 @@ class FoodsController < ApplicationController
     @food = Food.new
 
     respond_to do |format|
-      format.js
       format.html
+      format.js
     end
   end
 

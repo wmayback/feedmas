@@ -3,7 +3,7 @@
     <% @foods.each do |food| %>
     <li>
       <%= image_tag food.account.image.url, class: 'logo' %>
-      <div class="desc"><%= link_to food.description, food_path(food), id: "show_link", remote: true %></div>
+      <div class="desc"><%= link_to food.description, food_path(food), data: { toggle: "modal", target: "#ajax-modal" } %></div>
 
 
       <div class="stat"><%= food.status %></div>

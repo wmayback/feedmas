@@ -1,6 +1,5 @@
-<h1><%= @food.description %></h1>
 
-<h4> logged in as <%=session[:first_name]%> <%=session[:last_name]%> :: <%= session[:account_name]%>  </h4>
+<h3><%= @food.description %></h3>
 
 <p>
   <b>Pick Up By:</b>
@@ -8,8 +7,8 @@
 </p>
 
 <p>
-  <b>Account:</b>
-  <%= @food.account_id %>
+  <b>Donor:</b>
+  <%= Account.find_by_id(@food.account_id).account_name %>
 </p>
 
 <p>
@@ -18,8 +17,9 @@
 </p>
 
 <p>
-  <b>Claimant:</b>
+  <b>Claimed By:</b>
   <%= @food.claimant %>
 </p>
 
-
+<%= link_to 'Claim item', claim_url, class: 'btn-primary btn-large', method: 'create', data: { confirms: "Do you really want to claim this?"} %> <br>
+<%= link_to 'Back', foods_path %>
