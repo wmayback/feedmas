@@ -2,22 +2,13 @@
 <h3><%= @food.description %></h3>
 
 <p>
-  <b>Pick Up By:</b>
-  <%= @food.status %>
-</p>
+  <b>Must pick-up by:</b>
+  <%= @food.status %></br>
 
-<p>
   <b>Donor:</b>
-  <%= Account.find_by_id(@food.account_id).account_name %>
-</p>
+  <%= Account.find_by_id(@food.account_id).account_name %> </br>
 
-<p>
-  <b>Description:</b>
-  <%= @food.description %>
-</p>
-
-<p>
-  <b>Claimed By:</b>
+  <b>Claimed By:</b> </br>
   <%= @food.claimant %>
 </p>
 
