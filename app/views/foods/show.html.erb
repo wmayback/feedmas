@@ -8,8 +8,8 @@
   <b>Donor:</b>
   <%= Account.find_by_id(@food.account_id).account_name %> </br>
 
-  <b>Claimed By:</b> </br>
-  <%= @food.claimant %>
+  <b>Claimed By:</b>
+  <%= @food.claimant %></br>
 </p>
 
 <%= link_to 'Claim item', claim_url, class: 'btn-primary btn-large', method: 'create', data: { confirms: "Do you really want to claim this?"} %> <br>
