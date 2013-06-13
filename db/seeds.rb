@@ -1,5 +1,5 @@
 account_hashes = [
-{ :account_name => "Lakeview Pantry", :category => "Pantry", :phone => "630-807-9619", :address_line1 => "501 S State St", :adress_line2 => "", :city => "Chicago", :state => "IL", :postcode => "60605", :image => File.open("#{Rails.root}/db/seeds_data/panera.jpg") },
+{ :account_name => "Feinstein Sisters Bagels", :category => "Pantry", :phone => "630-807-9619", :address_line1 => "501 S State St", :adress_line2 => "", :city => "Chicago", :state => "IL", :postcode => "60605", :image => File.open("#{Rails.root}/db/seeds_data/panera.jpg") },
 
 { :account_name => "Lakestreet Pantry", :category => "Pantry", :phone => "847-807-9616",:address_line1 => "3831 N Broadway St",:address_line2 => "", :city => "Chicago", :state => "IL", :postcode => "60613", :image => File.open("#{Rails.root}/db/seeds_data/lakeviewpantry.jpg") },
 { :account_name => "Common Pantry", :category => "Pantry", :phone => "847-807-9617", :address_line1 => "3744 N Damen Ave", :address_line2 => "", :city => "Chicago", :state => "IL", :postcode => "60618", :image => File.open("#{Rails.root}/db/seeds_data/commonpantry.jpg") },
