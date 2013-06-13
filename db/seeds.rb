@@ -1,7 +1,7 @@
 account_hashes = [
 { :account_name => "Banera Preads", :category => "Restaurant", :phone => "630-807-9619", :address_line1 => "501 S State St", :adress_line2 => "", :city => "Chicago", :state => "IL", :postcode => "60605", :image => File.open("#{Rails.root}/db/seeds_data/panera.jpg") },
 
-{ :account_name => "Lakeview Pantry", :category => "Pantry", :phone => "847-807-9616",:address_line1 => "3831 N Broadway St",:address_line2 => "", :city => "Chicago", :state => "IL", :postcode => "60613", :image => File.open("#{Rails.root}/db/seeds_data/lakeviewpantry.jpg") },
+{ :account_name => "Lakestreet Pantry", :category => "Pantry", :phone => "847-807-9616",:address_line1 => "3831 N Broadway St",:address_line2 => "", :city => "Chicago", :state => "IL", :postcode => "60613", :image => File.open("#{Rails.root}/db/seeds_data/lakeviewpantry.jpg") },
 { :account_name => "Common Pantry", :category => "Pantry", :phone => "847-807-9617", :address_line1 => "3744 N Damen Ave", :address_line2 => "", :city => "Chicago", :state => "IL", :postcode => "60618", :image => File.open("#{Rails.root}/db/seeds_data/commonpantry.jpg") },
 { :account_name => "Feinstein Sisters Bagels", :category => "Restaurant", :phone => "847-807-9619", :address_line1 => "30 N LaSalle St", :adress_line2 => "100E", :city => "Chicago", :state => "IL", :postcode => "60602", :image => File.open("#{Rails.root}/db/seeds_data/einsteinbros.jpg") }
 ]
@@ -23,7 +23,7 @@ account_hashes.each do |account|
 end
 puts "There are now #{Account.count} rows in the Accounts table."
 
-users_hashes = [ {:email => "test2", :first_name => "Chip", :last_name => "Buckets", :account_id => Account.first.id, :phone => "847-362-2626", :mphone => "773-202-9000", :fax => "312-821-9092", :password => "p", :admin => false }, {:email => "maduana3@gmail.com", :first_name => "Helga", :last_name => "Smith", :account_id => Account.first.id, :phone => "847-362-2626", :mphone => "773-202-9000", :fax => "312-821-9092", :password => "p", :admin => true }, {:email => "test", :first_name => "Bodega", :last_name => "Capstone", :account_id => Account.last.id, :phone => "312-212-2626", :mphone => "773-202-9000", :fax => "312-821-9092", :password => "p", :admin => true }]
+users_hashes = [ {:email => "richard@banerapreads.com", :first_name => "Richard", :last_name => "Alexander", :account_id => Account.first.id, :phone => "312-853-5248", :mphone => "773-202-9000", :fax => "312-821-9092", :password => "p", :admin => false }, {:email => "scott@banerapreads.com", :first_name => "Scott", :last_name => "Jacobs", :account_id => Account.first.id, :phone => "847-362-2626", :mphone => "773-202-9000", :fax => "312-821-9092", :password => "p", :admin => true }, {:email => "natasha@feinsteinsisters.com", :first_name => "Natasha", :last_name => "Dosskin", :account_id => Account.last.id, :phone => "312-212-2626", :mphone => "773-202-9000", :fax => "312-821-9092", :password => "p", :admin => true }]
 
 
 User.destroy_all
