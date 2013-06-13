@@ -43,7 +43,7 @@ users_hashes.each do |user|
 end
 puts "There are now #{User.count} rows in the Users table."
 
-foods_hashes = [{:status => "9:00 PM", :account_id => Account.last.id, :description => "Bagels"}, {:status => "6:45 PM", :account_id => Account.last.id, :description => "Ravioli"}, {:status => "11:00 PM", :account_id => Account.first.id, :description => "Baked goods"}]
+foods_hashes = [{:status => "9:00 PM", :account_id => Account.first.id, :description => "Bagels"}, {:status => "6:45 PM", :account_id => Account.first.id, :description => "Ravioli"}, {:status => "11:00 PM", :account_id => Account.last.id, :description => "Baked goods"}]
 
 Food.destroy_all
 foods_hashes.each do |food|
