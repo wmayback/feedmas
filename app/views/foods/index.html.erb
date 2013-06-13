@@ -2,7 +2,7 @@
   <ul>
     <% @foods.each do |food| %>
     <li>
-       <img src="http://upload.wikimedia.org/wikipedia/en/f/f1/PaneraLogo.png" width="75" height="75" alt="Icon" />
+       <%= image_tag food.account.image.url, class: 'logo' %>
 
       <div class="desc"><%= link_to food.description, food_path(food), data: { toggle: "modal", target: "#pjax-modal" } %></div>
 
