@@ -1,6 +1,6 @@
 Feedmas::Application.routes.draw do
 
-  root :to => 'sessions#new'
+  root :to => 'foods#index'
 
     #login practice
 
